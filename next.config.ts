@@ -1,5 +1,7 @@
 import { PHASE_DEVELOPMENT_SERVER } from 'next/constants.js'
 import type { NextConfig } from 'next'
+import fs from 'node:fs'
+import path from 'node:path'
 
 export default async (phase: string) => {
     const isDev = phase === PHASE_DEVELOPMENT_SERVER
@@ -8,8 +10,8 @@ export default async (phase: string) => {
     if (process.env.FIREBASE_CONFIG) {
         firebaseConfig = process.env.FIREBASE_CONFIG
     } else {
-        // @ts-ignore
-        firebaseConfig = JSON.stringify((await import("@/app/modules/firebase/config.json")))
+        const configPath = path.join(process.cwd(), 'app', 'modules', 'firebase', 'config.json')
+        firebaseConfig = fs.existsSync(configPath) ? fs.readFileSync(configPath, 'utf8') : '{}'
     }
 
     const nextConfig: NextConfig = {

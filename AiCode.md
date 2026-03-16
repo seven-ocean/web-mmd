@@ -1,0 +1,292 @@
+# web-mmd 项目架构 / 功能模块梳理
+
+> 目标：在浏览器里实时播放/编辑 MMD（PMX/PMD + VMD/VPD），支持多种相机与运行模式，并提供多人协作（WebRTC + Firestore 信令）。
+
+## 1. 技术栈与运行形态
+
+- 框架：Next.js（App Router），React（Client Components 为主）
+- 渲染：three.js + @react-three/fiber（Canvas 场景），@react-three/drei（相机/加载等）
+- 后期：@react-three/postprocessing + 自研 Pass（含 HexDoF、NormalBlending 等）
+- WebGPU：three/webgpu + 对应 EffectComposer/Node 版后期链路（实验性）
+- 动画/编辑：theatre.js（相机 Editor Mode 时间轴/镜头编辑）
+- 物理：ammojs-typed（RootLayout 初始化），three-stdlib（MMDPhysics、GrantSolver 等）
+- UI：
+  - Leva：调参 GUI（右侧面板/自动隐藏）
+  - MUI：Main UI（资源管理抽屉/弹窗）
+  - media-chrome：音频控制条（作为播放时间轴来源）
+- 多人：Firebase Firestore（信令/在线用户），WebRTC DataChannel（多路通道：信令通道 + 业务通道）
+- 存储：localforage（IndexedDB），自定义 zustand persist 中间件
+- 测试：Playwright（E2E）
+
+构建/部署形态：
+- `next.config.ts` 设置 `output: 'export'` + `assetPrefix`，面向静态站点部署（GitHub Pages 风格）。
+- Webpack 增加 `raw-loader` 以便直接加载 `.vert/.frag` shader 文件。
+
+## 2. 入口与顶层装配
+
+### 2.1 Next App Router
+
+- `app/layout.tsx`：全局布局，初始化 Ammo 物理库（只在浏览器端执行）
+- `app/page.tsx`：主页面
+  - 挂载 `<Canvas>`（WebGL/WebGPU 二选一）
+  - 叠加 UI：LoadingOverlay、ControlBar、Leva Panel、MainUI（资源抽屉）、Multiplayer、QRCodeOverlay 等
+
+### 2.2 渲染世界（ThreeWorld）
+
+`app/components/three-world/index.tsx` 将场景拆成多个子系统（组合式装配）：
+- Renderer：渲染循环/帧同步、WebGPU 开关、PBR 开关、像素比控制
+- Lights：灯光系统
+- Models：模型系统（可多模型）
+- RunModes：运行模式（Player/Game/Intro）
+- Camera：相机系统 + CameraWork（多相机模式）
+- Controls：Orbit/Transform 控制等
+- Effects：后期（WebGL Pass 或 WebGPU Node 链）
+- Skybox：HDR 环境
+- Plugins / Debug / Credits：辅助系统
+
+## 3. 状态与数据模型（Zustand 三层）
+
+> 该项目的“配置/资源/运行时”拆成 3 个 store：ConfigStore、PresetStore、GlobalStore。
+
+### 3.1 ConfigStore：资源库 + 用户身份（持久化）
+
+位置：`app/stores/useConfigStore.ts`
+
+职责：
+- 存储“资源文件”本体（base64/dataURL）：模型 pmx/pmd、动作 vmd、相机、音乐等
+- 维护资源哈希、preset 列表信息
+- 生成并持久化 `uid`（多人协作用），并在首次水合后注册用户
+
+存储介质：
+- localforage（实例名 `mmd-storage`）+ 自定义 persist 中间件
+
+### 3.2 PresetStore：场景配置/调参快照（持久化）
+
+位置：`app/stores/usePresetStore.ts`，默认模板：`app/presets/Default_config.json`
+
+职责：
+- 保存“播放/渲染/相机/灯光/后期/运行模式/模型挂载”等参数（类似工程文件）
+- 多 preset 切换：通过切换 localforage instance 实现
+
+### 3.3 GlobalStore：运行时对象引用（不持久化）
+
+位置：`app/stores/useGlobalStore.ts`
+
+职责（典型字段）：
+- three/MMD 运行时对象：`loader`、`camera`、`runtimeCharacter(mixer/physics/ik/grant)`、`models`（已加载 skinnedMesh）
+- 播放器：`player`（HTMLAudioElement/VideoElement，作为时间源）
+- GUI/选择状态：`gui`、`selectedName`、`enabledTransform`、`openMainUI`
+- 多人：`peerChannels`、`groupChannels`、`onOfferingRef/onAnsweringRef/onInitRef`、`remoteModels` 等
+
+### 3.4 WithReady：渲染门禁
+
+位置：`app/stores/WithReady.tsx`
+
+含义：
+- 在 `storeReady && player` 之前，不渲染依赖“时间源/配置”的子系统（避免水合前后抖动与空引用）。
+
+## 4. 资源管理模块（本地资源/远端资源）
+
+### 4.1 选择文件入口（隐藏 input）
+
+- `app/components/file-selector/index.tsx`：页面里常驻一个 `<input id="selectFile" />`
+- 各资源类型的 `onCreate()` 会配置该 input（例如目录选择、文件类型），并读取文件内容写入 ConfigStore
+
+### 4.2 MainUI（MUI 抽屉）资源面板
+
+位置：`app/components/main-ui/*`
+
+结构：
+- `main-ui/index.tsx`：左上角按钮打开 Modal
+- `main-ui/Panel.tsx`：左侧 Drawer（Presets/Models/Motions/Cameras/Musics）
+- `main-ui/context.ts`：resourcesMap（资源类型路由）
+- 每种资源目录下基本都有：`onCreate/onLoad/onRead/onDelete/useNames` 等
+
+典型例子：
+- Models：`main-ui/models/onCreate.ts` 支持选择“解压后的模型文件夹”，将 pmx/pmd + 贴图写入 ConfigStore，并更新 PresetStore.models
+- Motions/Cameras/Musics：通过 `loadFile` 读取单文件并保存到 ConfigStore，再由 PresetStore 引用名称
+
+### 4.3 Remote/Peers Resources（多人资源交换）
+
+位置：`app/components/main-ui/resources/*` + `app/components/multiplayer/fileTransfer/*`
+
+职责：
+- 在多人模式中，通过 DataChannel 共享资源（文件列表/哈希/拉取文件）
+- RemoteResources/PeersResources 负责展示与拉取流程
+
+## 5. MMD 资产加载与运行时（核心）
+
+### 5.1 MMDLoader（重构版）
+
+位置：`app/modules/MMDLoader.ts`
+
+职责：
+- 解析 PMX/PMD（模型）与 VMD/VPD（动作/姿态），组装成 three.js 的 `SkinnedMesh` 与 `AnimationClip`
+- 处理纹理映射（支持从“用户导入的贴图字典”重定向路径）
+- 支持 SDEF、PBR、WebGPU 路径（部分 shader/材质在 `app/modules/shaders/*`、`app/modules/effects/webgpu/*`）
+
+### 5.2 PMXModel（r3f 组件封装）
+
+位置：`app/components/three-world/model/PMXModel.tsx`
+
+流程：
+- 从 GlobalStore 拿 `loader`，调用 `loader.loadAsync(url)` 获取 { geometry/material/data }
+- `initBones()` 将骨骼装配进 skinnedMesh，并写入 `boneBasePos` 作为基准
+- onCreate/onDispose 将 mesh 注入/移出 GlobalStore.models
+
+### 5.3 Model（场景中“一个模型实例”）
+
+位置：`app/components/three-world/model/Model.tsx`
+
+职责：
+- 将 PresetStore.models 的配置（文件名/动作列表/开关）映射为 PMXModel + 一组 helper 子模块：
+  - Morph（表情/形变）
+  - Material（材质调参）
+  - Physics（MMDPhysics）
+  - Animation（动作混合、播放器时间驱动）
+- 支持多模型与“目标模型”概念（targetModelId）
+
+## 6. 播放与时间源（AudioPlayer 驱动全局时间）
+
+位置：`app/components/control-bar/audio-player/index.tsx`
+
+核心点：
+- 通过 media-chrome 渲染音频控制条
+- audio element 被写入 GlobalStore.player，作为全局时间源
+- `useRenderLoop()` 在 r3f 的 `useFrame` 中用 `player.currentTime` 计算 `playDeltaRef`（用于驱动 camera/motion 更新、seek 保存等）
+
+相关文件：
+- 渲染循环：`app/components/three-world/renderer/useRenderLoop.ts`
+- 顶部控制条自动隐藏：`app/components/control-bar/*`
+
+## 7. 相机系统（多模式）
+
+入口：`app/components/three-world/camera/*`
+
+组成：
+- `camera/index.tsx`：PerspectiveCamera + CameraWorkHelper
+- `camera/helper/index.tsx`：Camera Mode 路由
+  - Motion File：跟随相机动作文件
+  - Fix Following：固定跟随
+  - Director：快捷键导演模式
+  - Editor：Theatre.js 时间轴编辑
+  - AR：手机 AR 辅助（与 /ar-camera 页面联动）
+
+AR 辅助页面：
+- `app/ar-camera/*`：XR HitTest 放置物体，并用 WebRTC DataChannel 发送矩阵数据
+
+## 8. 后期/特效系统（WebGL vs WebGPU 双链路）
+
+入口：`app/components/effects/index.tsx`
+
+- WebGL（默认）：EffectComposer + Pass（Outline / NormalBlending / DepthOfField(HexDoF) / Bloom / DebugTexture）
+- WebGPU（实验）：WebGPUEffectComposer + Node（OutlineNode / DofNode / BloomNode / PassNode）
+
+自研 shader / pass：
+- `app/modules/effects/*`
+- `app/modules/effects/shaders/*`（大量 GLSL）
+- `app/modules/shaders/*`（MMD Toon/SDEF 等）
+
+## 9. 运行模式（RunModes）
+
+位置：`app/components/three-world/run-modes/*`
+
+- Player Mode：播放器导向（时间轴/镜头/后期）
+- Game Mode：多玩家角色控制与交互（WASD/跳跃/菜单）
+- Introduction Mode：演示/引导式播放
+
+## 10. 多人协作（Firestore 信令 + WebRTC 多通道）
+
+### 10.1 信令（Firestore）
+
+位置：`app/modules/firebase/init.ts`
+
+用途：
+- users：在线/活跃用户列表
+- connections：SDP Offer/Answer 交换（`setSDP`、`listenOnConnections`）
+
+注意：
+- 若缺少 Firebase 配置，模块会降级为空实现（多人功能不可用，但不阻塞应用运行）。
+
+### 10.2 WebRTC 连接管理
+
+位置：`app/components/multiplayer/peer/*`
+
+- `createPeer.tsx`：创建 RTCPeerConnection，固定 negotiated datachannel:
+  - `signal` 通道（id=0）：用于发“initCode/配对码”等轻量信息
+- `useOfferRTC.tsx`：发起方创建 offer，写入 Firestore，并等待 answer 回写
+- `useAnswerRTC.tsx`：应答方监听 offer，setRemoteDescription 后 setLocalDescription 回写 answer
+- `useSdpListener.ts`：统一订阅 Firestore connections，把消息分发给 offer/answer 回调
+
+### 10.3 多路业务通道（GroupChannel + useChannel）
+
+位置：`app/components/multiplayer/peer/channel/*`
+
+- `useChannel`：创建 negotiated DataChannel（按 label+id），并包装 send/message 为 JSON
+- `GroupChannel`：把某 label 的通道组织成“广播组”，统一 send/onMessage
+
+典型业务：
+- chat：群聊
+- fileTransfer：资源共享/拉取
+
+## 11. 目录结构速查（按职责）
+
+```
+web-mmd/
+  app/
+    components/
+      three-world/         # three 场景子系统（模型/相机/控制/后期/运行模式…）
+      control-bar/         # 播放控制条（音频时间源）+ 全屏按钮
+      panel/               # Leva GUI 容器
+      main-ui/             # MUI 资源管理面板（本地/远端）
+      multiplayer/         # 多人：房间/连接/通道/文件传输/聊天
+      qrcode-overlay/      # 二维码/配对辅助
+      loading-overlay/     # 加载提示
+      file-selector/       # 隐藏文件 input（资源导入入口）
+    modules/
+      MMDLoader.ts         # MMD 核心加载器（PMX/VMD/材质/shader）
+      firebase/            # Firestore 信令与用户活跃管理
+      effects/             # 后期 pass、shader、webgpu 实现
+      shaders/             # MMD toon / SDEF 等 shader
+    presets/               # 默认 preset / theatre state / 空工程
+    stores/                # Zustand：Config/Preset/Global + WithReady
+    middleware/            # persist 中间件
+    utils/                 # GUI 构建、读文件等工具
+  public/                  # 静态资源（HDR、gltf、默认 preset data）
+  tests/                   # Playwright E2E
+  next.config.ts           # 静态导出配置 + 环境变量注入
+```
+
+## 12. 典型数据流（从导入到播放）
+
+1) 导入资源：
+- MainUI → 对应资源 `onCreate/onLoad` → 写入 ConfigStore（base64）
+
+2) 组装场景：
+- PresetStore.models 引用 ConfigStore 的文件名
+- `<ThreeWorld>` → `<Models>` → `<Model>` → `<PMXModel>` 调用 GlobalStore.loader 加载
+
+3) 播放驱动：
+- AudioPlayer 把 audio element 写入 GlobalStore.player
+- RenderLoop 每帧读取 `player.currentTime` 计算 `playDeltaRef`
+- Animation/Camera/Effects 根据 `playDeltaRef` 或 preset 参数更新 three world
+
+4) 多人模式：
+- ConfigStore.uid（本地生成）→ Firestore users 标记活跃
+- Room 获取活跃用户列表并连接（WebRTC）
+- DataChannel 发送/接收 chat、资源同步、远端模型状态等
+
+
+
+
+
+
+# 接下来的任务（前端）
+在 web-mmd/app 继续迭代功能
+
+## 要求
+1、要符合这个工程文件的目录结构和代码规范
+2、要在这个工程文件的基础上继续迭代，不能完全重新开始
+
+## 开发功能
+1、模型我想读取 public\MMD\芙宁娜，改下代码实现
