@@ -3,8 +3,10 @@ import usePresetStore from "@/app/stores/usePresetStore";
 import { MenuItem } from "@mui/material";
 import ResourceCard from "../resources/ResourceCard";
 import onDelete from "./onDelete";
+import { useT } from "@/app/i18n/useT";
 
 function LocalMotion({ name }: { name: string }) {
+    const t = useT()
 
     const onClick = (e: MouseEvent) => {
         
@@ -17,7 +19,7 @@ function LocalMotion({ name }: { name: string }) {
             selected={false}
         >
             <MenuItem sx={{ color: 'red' }} onClick={() => onDelete(name)}>
-                Delete Motion
+                {t("resource.deleteMotion")}
             </MenuItem>
         </ResourceCard>
     );

@@ -1,4 +1,4 @@
-import { AnimationAction, AnimationClip, AnimationMixer, Quaternion, Vector3 } from "three";
+import { AnimationAction, AnimationClip, AnimationMixer, LoopOnce, LoopRepeat, Quaternion, Vector3 } from "three";
 import { useEffect, useMemo, useRef, useState } from "react";
 import { useTargetModel } from "../../model/helper/useTargetModel";
 import buildUpdatePMX from "../../model/helper/buildUpdatePMX";
@@ -16,7 +16,7 @@ type ActionsType = Record<string, {
 
 function Actions() {
     const mesh = useTargetModel()
-    const motionFiles = useConfigStore(state => state.motionFiles)
+    const motionFiles = useConfigStore(state => state.motionFiles) ?? {}
     const loader = useGlobalStore(state => state.loader)
 
     const motionsRef = useRef<ActionsType>({
@@ -73,12 +73,22 @@ function Actions() {
 
     const [isInit, setInit] = useState(false)
     useEffect(() => {
+        const vmdFiles = Object.values(motionsRef.current).map((m) => motionFiles[m.name]).filter(Boolean)
+        if (vmdFiles.length !== Object.keys(motionsRef.current).length) return
+
         const init = async () => {
             for (const [key, motion] of Object.entries(motionsRef.current)) {
                 const vmdFile = motionFiles[motion.name]
+                if (!vmdFile) continue
                 const clip = await loader.loadAnimation(vmdFile, mesh, buildOnProgress(vmdFile))
-                makeClipLoopable(clip)
                 const action = mixer.clipAction(clip)
+                if (key === "jump") {
+                    action.setLoop(LoopOnce, 1)
+                    action.clampWhenFinished = true
+                } else {
+                    makeClipLoopable(clip)
+                    action.setLoop(LoopRepeat, Infinity)
+                }
                 if (key != "idle") {
                     action.setEffectiveWeight(0.0)
                 }
@@ -95,7 +105,7 @@ function Actions() {
             mixer.uncacheRoot(mesh)
             setInit(false)
         }
-    }, [mixer])
+    }, [loader, mesh, mixer, motionFiles])
 
     const rotateYVelocityRef = useRef(0.0)
     const velocityRef = useRef(0.0)

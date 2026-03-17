@@ -14,7 +14,7 @@ import Motions from "@/app/components/main-ui/motions";
 function Animation({ motionNames }: { motionNames: string[] }) {
     const mesh = useModel()
     const player = useGlobalStore(state => state.player)
-    const motionFiles = useConfigStore(state => state.motionFiles)
+    const motionFiles = useConfigStore(state => state.motionFiles) ?? {}
     const isMotionUpdating = useGlobalStore(state => state.isMotionUpdating)
 
     const mixer = useMemo(() => new AnimationMixer(mesh), [mesh]) as AnimationMixer & {

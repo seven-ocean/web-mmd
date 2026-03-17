@@ -16,7 +16,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        <title>Web MMD</title>
+        <title>臻灵数字人</title>
         <link rel="icon" href="./icon.png" sizes="any" />
         <meta name="description" content="Play MMD everywhere" />
       </head>

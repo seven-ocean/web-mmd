@@ -17,6 +17,7 @@ import Resources from "./resources";
 import PeersResources from "./resources/PeersResources";
 import LocalResources from "./resources/LocalResources";
 import { resourcesMap, ResourceTypeContext } from "./context";
+import { useT } from "@/app/i18n/useT";
 
 const drawerWidth = 180;
 const drawerBottomItems = {
@@ -32,6 +33,7 @@ const drawerItems = {
 }
 
 function Panel() {
+    const t = useT()
     const [mobileOpen, setMobileOpen] = useState(false);
     const [isClosing, setIsClosing] = useState(false);
 
@@ -64,7 +66,7 @@ function Panel() {
                             <ListItemIcon>
                                 <Icon></Icon>
                             </ListItemIcon>
-                            <ListItemText primary={text} />
+                            <ListItemText primary={t(`resource.${text}` as any)} />
                         </ListItemButton>
                     </ListItem>
                 ))}
@@ -80,7 +82,7 @@ function Panel() {
                             <ListItemIcon>
                                 <Icon></Icon>
                             </ListItemIcon>
-                            <ListItemText primary={text} />
+                            <ListItemText primary={t("ui.settings")} />
                         </ListItemButton>
                     </ListItem>
                 ))}
@@ -109,7 +111,7 @@ function Panel() {
                         <MenuIcon />
                     </IconButton>
                     <Typography variant="h6" noWrap component="div">
-                        Main menu
+                        {t("ui.mainMenu")}
                     </Typography>
                 </Toolbar>
             </AppBar>
@@ -171,7 +173,7 @@ function Panel() {
             >
                 {
                     selectedKey == "Settings" ? (
-                        <Typography variant="h4">{selectedKey}</Typography>
+                        <Typography variant="h4">{t("ui.settings")}</Typography>
                     ) : (
                         <ResourceTypeContext.Provider value={selectedKey}>
                             <Resources>

@@ -44,12 +44,12 @@ export const storage: PersistStorage<PresetState> = {
     },
     setItem: async (name: string, value: StorageValue<PresetState>): Promise<void> => {
         console.log(name, 'with value', value.state, 'has been saved')
-        document.title = "Web MMD (Saving...)"
+        document.title = "臻灵数字人（保存中...）"
         for (const [key, val] of Object.entries(value.state)) {
             await db.setItem(key, val)
         }
         await db.setItem("version", value.version)
-        document.title = "Web MMD"
+        document.title = "臻灵数字人"
     },
     removeItem: async (name: string): Promise<void> => {
         console.log(name, 'has been deleted')
@@ -92,6 +92,24 @@ const usePresetStore = create(
 )
 
 usePresetStore.persist.onFinishHydration(() => {
+    usePresetStore.setState((state) => {
+        const models = state.models ?? {}
+        const character = models["character"]
+        const fallback = "ぼんやり待ち合わせ_腕広いver(465f).vmd"
+        const dance = "GimmeGimme_with_emotion.vmd"
+        if (
+            character?.fileName?.includes("芙宁娜")
+            && (
+                !character.motionNames
+                || character.motionNames.length === 0
+                || (character.motionNames.length === 1 && character.motionNames[0] === fallback)
+            )
+        ) {
+            character.motionNames = [dance]
+            return { models: { ...models } }
+        }
+        return {}
+    })
     useGlobalStore.setState({ presetReady: true })
     if(useGlobalStore.getState().configReady) {
         useGlobalStore.setState({ storeReady: true })

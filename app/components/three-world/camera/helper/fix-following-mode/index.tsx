@@ -1,7 +1,7 @@
 import useGlobalStore from "@/app/stores/useGlobalStore";
 import { useFrame, useThree } from "@react-three/fiber";
 import { useEffect, useRef } from "react";
-import { MathUtils, PerspectiveCamera, Spherical, Vector3 } from "three";
+import { MathUtils, PerspectiveCamera, Quaternion, Spherical, Vector3 } from "three";
 import { useTargetModel, WithTargetModel } from "../../../model/helper/useTargetModel";
 import { OrbitControls } from "three-stdlib";
 
@@ -15,9 +15,22 @@ function FixFollowing() {
     const isOrbitControlRef = useGlobalStore(state => state.isOrbitControlRef)
     const cameraOffset = useGlobalStore(state => state.cameraOffset)
 
-    const getCenterPos = () => targetModel.skeleton.getBoneByName("上半身").getWorldPosition(cameraOffset.center)
+    const getCenterPos = () => {
+        const center = cameraOffset.center
+        const skeleton = targetModel?.skeleton
+        const bone =
+            skeleton?.getBoneByName("上半身") ??
+            skeleton?.getBoneByName("上半身2") ??
+            skeleton?.getBoneByName("センター") ??
+            skeleton?.getBoneByName("Center") ??
+            skeleton?.getBoneByName("center") ??
+            skeleton?.bones?.[0]
+        if (bone) return bone.getWorldPosition(center)
+        return targetModel.getWorldPosition(center)
+    }
 
     const tempWeight = useRef(new Vector3()).current
+    const invQuat = useRef(new Quaternion()).current
 
     const posOffset = useRef(new Vector3()).current
     const targetOffset = useRef(new Vector3()).current
@@ -39,8 +52,9 @@ function FixFollowing() {
         const centerPos = getCenterPos()
 
         if (isOrbitControlRef.current) {
-            cameraOffset.position.subVectors(camera.position, targetRef.current).applyQuaternion(targetModel.quaternion.invert())
-            cameraOffset.target.subVectors(targetRef.current, centerPos).applyQuaternion(targetModel.quaternion.invert())
+            invQuat.copy(targetModel.quaternion).invert()
+            cameraOffset.position.subVectors(camera.position, targetRef.current).applyQuaternion(invQuat)
+            cameraOffset.target.subVectors(targetRef.current, centerPos).applyQuaternion(invQuat)
         } else {
 
             posOffset.subVectors(camera.position, targetRef.current)

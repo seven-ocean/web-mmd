@@ -14,6 +14,7 @@ import { SnackbarProvider } from "notistack";
 import Multiplayer from "./components/multiplayer";
 import QRCodeOverlay from "./components/qrcode-overlay";
 import MainUI from "./components/main-ui";
+import LangToggle from "./components/lang-toggle";
 const ControlBar = dynamic(() => import('./components/control-bar'), { ssr: false })
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 
@@ -49,6 +50,7 @@ export default function Home() {
       <SnackbarProvider anchorOrigin={{ horizontal: "left", vertical: "top" }} autoHideDuration={1000} variant="info" />
       <QRCodeOverlay></QRCodeOverlay>
       <ThemeProvider theme={theme}>
+        <LangToggle />
         <MainUI></MainUI>
       </ThemeProvider>
     </>

@@ -1,7 +1,9 @@
 import useGlobalStore from "@/app/stores/useGlobalStore";
 import usePresetStore from "@/app/stores/usePresetStore";
 import { buildOnProgress } from "@/app/utils/base";
+import { infoStyle } from "@/app/utils/gui";
 import { button, useControls } from "leva";
+import { enqueueSnackbar } from "notistack";
 import { useEffect, useRef, useState } from "react";
 import { AdditiveAnimationBlendMode, AnimationAction, AnimationClip, AnimationMixer, Camera, LoopOnce, LoopRepeat, NormalAnimationBlendMode, SkinnedMesh } from "three";
 import { makeClipAdditive } from "three/src/animation/AnimationUtils.js";
@@ -78,9 +80,31 @@ function VMDMotion({ target, mixer, vmdFile, motionName, resetPose, resetPhysic 
     }, { collapsed: true, render: () => isRenderGui(target.name) }, [motionName])
 
     useEffect(() => {
+        if (!vmdFile) {
+            if (motionName) {
+                enqueueSnackbar(`Motion file missing: '${motionName}'`, infoStyle(false));
+            }
+            return
+        }
         const init = async () => {
             const clip = await loader.loadAnimation(vmdFile, target, buildOnProgress(vmdFile))
             clip.name = motionName
+            if (clip.tracks.length === 0) {
+                enqueueSnackbar(`Motion '${motionName}' is not compatible with model '${target.name}'`, infoStyle(false));
+                usePresetStore.setState(({ models }) => {
+                    const { motionNames } = models[target.name]
+                    const idx = motionNames.indexOf(motionName)
+                    if (idx > -1) {
+                        motionNames.splice(idx, 1)
+                    }
+                    const fallback = "ぼんやり待ち合わせ_腕広いver(465f).vmd"
+                    if (!motionNames.includes(fallback)) {
+                        motionNames.push(fallback)
+                    }
+                    return { models: { ...models } }
+                })
+                return
+            }
             if (blendMode == AdditiveAnimationBlendMode) {
                 makeClipAdditive(clip)
             }

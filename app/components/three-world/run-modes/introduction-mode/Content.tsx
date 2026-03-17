@@ -6,8 +6,10 @@ import { Vector3, Quaternion, PerspectiveCamera } from "three"
 import Section from "./sections/Section"
 import { Text } from "@react-three/drei";
 import ContentContext from "./context"
+import { useT } from "@/app/i18n/useT";
 
 function Content() {
+    const t = useT()
     const { color } = useControls("Introduction", {
         color: "#007590"
     })
@@ -98,15 +100,15 @@ function Content() {
                     Web MMD
                 </Text>
                 <Text position={[0, -1, 0]} fontSize={0.3} color={color}>
-                    A Cross-Platform MMD Player
+                    {t("intro.tagline")}
                 </Text>
             </Section>
             <Section start={20.24} end={31.51} position={[5, 2, 0]}>
                 <Text position={[0, 0, 0]} fontWeight={"bold"} color={color}>
-                    What is MMD?
+                    {t("intro.whatIsMmd")}
                 </Text>
                 <Text position={[0, -1, 0]} fontSize={0.3} color={color}>
-                    MikuMikuDance(MMD) is a free 3D software for making high-quality Dancing MV.
+                    {t("intro.whatIsMmdDesc")}
                 </Text>
                 <Text position={[0, -1.5, 0]} fontSize={0.3} color={color}>
                     The original Windows version and specifications was developed by 樋口優.
@@ -137,33 +139,33 @@ function Content() {
             </Section>
             <Section start={40} end={57.50} position={[-10, 0, 0]}>
                 <Text position={[0, 0, 0]} fontWeight={"bold"} color={color}>
-                    Music
+                    {t("intro.music")}
                 </Text>
                 <Text position={[0, -1, 0]} fontSize={0.3} color={color}>
-                    You can load a audio file!
+                    {t("intro.musicDesc")}
                 </Text>
 
             </Section>
             <Section start={57.50} end={60} position={[2, 2.5, -3]}>
                 <Text position={[0, 0, 0]} fontWeight={"bold"} color={color}>
-                    Models
+                    {t("intro.models")}
                 </Text>
                 <Text position={[0, -1, 0]} fontSize={0.3} color={color}>
-                    You can download the Character, Stage model from MMD resource share sites.
+                    {t("intro.modelsDesc1")}
                 </Text>
                 <Text position={[0, -2, 0]} fontSize={0.3} color={color}>
-                    Like bowlroll.net or 3d.nicovideo.jp!
+                    {t("intro.modelsDesc2")}
                 </Text>
             </Section>
             <Section start={60} end={70} position={[10, 0, 0]}>
                 <Text position={[0, 0, 0]} fontWeight={"bold"} color={color}>
-                    Motions
+                    {t("intro.motions")}
                 </Text>
                 <Text position={[0, -1, 0]} fontSize={0.3} color={color}>
-                    You can download the Dancing, Emotion and Camera motions from MMD resource share sites.
+                    {t("intro.motionsDesc1")}
                 </Text>
                 <Text position={[0, -2, 0]} fontSize={0.3} color={color}>
-                    Like bowlroll.net or 3d.nicovideo.jp!
+                    {t("intro.motionsDesc2")}
                 </Text>
             </Section>
         </ContentContext.Provider>

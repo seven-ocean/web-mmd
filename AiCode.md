@@ -289,4 +289,1064 @@ web-mmd/
 2、要在这个工程文件的基础上继续迭代，不能完全重新开始
 
 ## 开发功能
-1、模型我想读取 public\MMD\芙宁娜，改下代码实现
+1、模型我想默认读取 public\MMD\芙宁娜，改下代码实现
+
+
+
+
+# 接下来的任务（前端）
+在 web-mmd/app 继续迭代功能
+
+## 要求
+1、要符合这个工程文件的目录结构和代码规范
+2、要在这个工程文件的基础上继续迭代，不能完全重新开始
+
+## 开发功能
+Uncaught TypeError: Cannot read properties of undefined (reading 'startsWith')
+    at PMXModel.useEffect (F:\Projects\AI-Human\web-mmd\app\components\three-world\model\PMXModel.tsx:31:17)
+    at react-stack-bottom-frame (react-reconciler.development.js:7241:22)
+    at runWithFiberInDEV (react-reconciler.development.js:399:20)
+    at commitHookEffectListMount (react-reconciler.development.js:4782:628)
+    at commitHookPassiveMountEffects (react-reconciler.development.js:4817:60)
+    at reconnectPassiveEffects (react-reconciler.development.js:5670:17)
+    at recursivelyTraverseReconnectPassiveEffects (react-reconciler.development.js:5661:68)
+    at reconnectPassiveEffects (react-reconciler.development.js:5669:17)
+    at recursivelyTraverseReconnectPassiveEffects (react-reconciler.development.js:5661:68)
+    at reconnectPassiveEffects (react-reconciler.development.js:5669:17)
+    at recursivelyTraverseReconnectPassiveEffects (react-reconciler.development.js:5661:68)
+    at commitPassiveMountOnFiber (react-reconciler.development.js:5648:451)
+    at recursivelyTraversePassiveMountEffects (react-reconciler.development.js:5614:106)
+    at commitPassiveMountOnFiber (react-reconciler.development.js:5656:17)
+    at recursivelyTraversePassiveMountEffects (react-reconciler.development.js:5614:106)
+    at commitPassiveMountOnFiber (react-reconciler.development.js:5622:17)
+    at recursivelyTraversePassiveMountEffects (react-reconciler.development.js:5614:106)
+    at commitPassiveMountOnFiber (react-reconciler.development.js:5622:17)
+    at recursivelyTraversePassiveMountEffects (react-reconciler.development.js:5614:106)
+    at commitPassiveMountOnFiber (react-reconciler.development.js:5622:17)
+    at recursivelyTraversePassiveMountEffects (react-reconciler.development.js:5614:106)
+    at commitPassiveMountOnFiber (react-reconciler.development.js:5622:17)
+    at recursivelyTraversePassiveMountEffects (react-reconciler.development.js:5614:106)
+    at commitPassiveMountOnFiber (react-reconciler.development.js:5648:306)
+    at recursivelyTraversePassiveMountEffects (react-reconciler.development.js:5614:106)
+    at commitPassiveMountOnFiber (react-reconciler.development.js:5656:17)
+    at recursivelyTraversePassiveMountEffects (react-reconciler.development.js:5614:106)
+    at commitPassiveMountOnFiber (react-reconciler.development.js:5656:17)
+    at recursivelyTraversePassiveMountEffects (react-reconciler.development.js:5614:106)
+    at commitPassiveMountOnFiber (react-reconciler.development.js:5656:17)
+    at recursivelyTraversePassiveMountEffects (react-reconciler.development.js:5614:106)
+    at commitPassiveMountOnFiber (react-reconciler.development.js:5656:17)
+    at recursivelyTraversePassiveMountEffects (react-reconciler.development.js:5614:106)
+    at commitPassiveMountOnFiber (react-reconciler.development.js:5656:17)
+    at recursivelyTraversePassiveMountEffects (react-reconciler.development.js:5614:106)
+    at commitPassiveMountOnFiber (react-reconciler.development.js:5656:17)
+    at recursivelyTraversePassiveMountEffects (react-reconciler.development.js:5614:106)
+    at commitPassiveMountOnFiber (react-reconciler.development.js:5656:17)
+    at recursivelyTraversePassiveMountEffects (react-reconciler.development.js:5614:106)
+    at commitPassiveMountOnFiber (react-reconciler.development.js:5656:17)
+    at recursivelyTraversePassiveMountEffects (react-reconciler.development.js:5614:106)
+    at commitPassiveMountOnFiber (react-reconciler.development.js:5656:17)
+    at recursivelyTraversePassiveMountEffects (react-reconciler.development.js:5614:106)
+    at commitPassiveMountOnFiber (react-reconciler.development.js:5656:17)
+    at recursivelyTraversePassiveMountEffects (react-reconciler.development.js:5614:106)
+    at commitPassiveMountOnFiber (react-reconciler.development.js:5656:17)
+    at recursivelyTraversePassiveMountEffects (react-reconciler.development.js:5614:106)
+    at commitPassiveMountOnFiber (react-reconciler.development.js:5656:17)
+    at recursivelyTraversePassiveMountEffects (react-reconciler.development.js:5614:106)
+    at commitPassiveMountOnFiber (react-reconciler.development.js:5656:17)
+PMXModel.useEffect @ F:\Projects\AI-Human\web-mmd\app\components\three-world\model\PMXModel.tsx:31
+react-stack-bottom-frame @ react-reconciler.development.js:7241
+runWithFiberInDEV @ react-reconciler.development.js:399
+commitHookEffectListMount @ react-reconciler.development.js:4782
+commitHookPassiveMountEffects @ react-reconciler.development.js:4817
+reconnectPassiveEffects @ react-reconciler.development.js:5670
+recursivelyTraverseReconnectPassiveEffects @ react-reconciler.development.js:5661
+reconnectPassiveEffects @ react-reconciler.development.js:5669
+recursivelyTraverseReconnectPassiveEffects @ react-reconciler.development.js:5661
+reconnectPassiveEffects @ react-reconciler.development.js:5669
+recursivelyTraverseReconnectPassiveEffects @ react-reconciler.development.js:5661
+commitPassiveMountOnFiber @ react-reconciler.development.js:5648
+recursivelyTraversePassiveMountEffects @ react-reconciler.development.js:5614
+commitPassiveMountOnFiber @ react-reconciler.development.js:5656
+recursivelyTraversePassiveMountEffects @ react-reconciler.development.js:5614
+commitPassiveMountOnFiber @ react-reconciler.development.js:5622
+recursivelyTraversePassiveMountEffects @ react-reconciler.development.js:5614
+commitPassiveMountOnFiber @ react-reconciler.development.js:5622
+recursivelyTraversePassiveMountEffects @ react-reconciler.development.js:5614
+commitPassiveMountOnFiber @ react-reconciler.development.js:5622
+recursivelyTraversePassiveMountEffects @ react-reconciler.development.js:5614
+commitPassiveMountOnFiber @ react-reconciler.development.js:5622
+recursivelyTraversePassiveMountEffects @ react-reconciler.development.js:5614
+commitPassiveMountOnFiber @ react-reconciler.development.js:5648
+recursivelyTraversePassiveMountEffects @ react-reconciler.development.js:5614
+commitPassiveMountOnFiber @ react-reconciler.development.js:5656
+recursivelyTraversePassiveMountEffects @ react-reconciler.development.js:5614
+commitPassiveMountOnFiber @ react-reconciler.development.js:5656
+recursivelyTraversePassiveMountEffects @ react-reconciler.development.js:5614
+commitPassiveMountOnFiber @ react-reconciler.development.js:5656
+recursivelyTraversePassiveMountEffects @ react-reconciler.development.js:5614
+commitPassiveMountOnFiber @ react-reconciler.development.js:5656
+recursivelyTraversePassiveMountEffects @ react-reconciler.development.js:5614
+commitPassiveMountOnFiber @ react-reconciler.development.js:5656
+recursivelyTraversePassiveMountEffects @ react-reconciler.development.js:5614
+commitPassiveMountOnFiber @ react-reconciler.development.js:5656
+recursivelyTraversePassiveMountEffects @ react-reconciler.development.js:5614
+commitPassiveMountOnFiber @ react-reconciler.development.js:5656
+recursivelyTraversePassiveMountEffects @ react-reconciler.development.js:5614
+commitPassiveMountOnFiber @ react-reconciler.development.js:5656
+recursivelyTraversePassiveMountEffects @ react-reconciler.development.js:5614
+commitPassiveMountOnFiber @ react-reconciler.development.js:5656
+recursivelyTraversePassiveMountEffects @ react-reconciler.development.js:5614
+commitPassiveMountOnFiber @ react-reconciler.development.js:5656
+recursivelyTraversePassiveMountEffects @ react-reconciler.development.js:5614
+commitPassiveMountOnFiber @ react-reconciler.development.js:5656
+recursivelyTraversePassiveMountEffects @ react-reconciler.development.js:5614
+commitPassiveMountOnFiber @ react-reconciler.development.js:5656
+recursivelyTraversePassiveMountEffects @ react-reconciler.development.js:5614
+commitPassiveMountOnFiber @ react-reconciler.development.js:5656
+recursivelyTraversePassiveMountEffects @ react-reconciler.development.js:5614
+commitPassiveMountOnFiber @ react-reconciler.development.js:5656
+recursivelyTraversePassiveMountEffects @ react-reconciler.development.js:5614
+commitPassiveMountOnFiber @ react-reconciler.development.js:5622
+recursivelyTraversePassiveMountEffects @ react-reconciler.development.js:5614
+commitPassiveMountOnFiber @ react-reconciler.development.js:5622
+recursivelyTraversePassiveMountEffects @ react-reconciler.development.js:5614
+commitPassiveMountOnFiber @ react-reconciler.development.js:5622
+recursivelyTraversePassiveMountEffects @ react-reconciler.development.js:5614
+commitPassiveMountOnFiber @ react-reconciler.development.js:5622
+recursivelyTraversePassiveMountEffects @ react-reconciler.development.js:5614
+commitPassiveMountOnFiber @ react-reconciler.development.js:5622
+recursivelyTraversePassiveMountEffects @ react-reconciler.development.js:5614
+commitPassiveMountOnFiber @ react-reconciler.development.js:5622
+recursivelyTraversePassiveMountEffects @ react-reconciler.development.js:5614
+commitPassiveMountOnFiber @ react-reconciler.development.js:5622
+recursivelyTraversePassiveMountEffects @ react-reconciler.development.js:5614
+commitPassiveMountOnFiber @ react-reconciler.development.js:5622
+recursivelyTraversePassiveMountEffects @ react-reconciler.development.js:5614
+commitPassiveMountOnFiber @ react-reconciler.development.js:5622
+recursivelyTraversePassiveMountEffects @ react-reconciler.development.js:5614
+commitPassiveMountOnFiber @ react-reconciler.development.js:5622
+recursivelyTraversePassiveMountEffects @ react-reconciler.development.js:5614
+commitPassiveMountOnFiber @ react-reconciler.development.js:5622
+recursivelyTraversePassiveMountEffects @ react-reconciler.development.js:5614
+commitPassiveMountOnFiber @ react-reconciler.development.js:5622
+recursivelyTraversePassiveMountEffects @ react-reconciler.development.js:5614
+commitPassiveMountOnFiber @ react-reconciler.development.js:5656
+recursivelyTraversePassiveMountEffects @ react-reconciler.development.js:5614
+commitPassiveMountOnFiber @ react-reconciler.development.js:5622
+recursivelyTraversePassiveMountEffects @ react-reconciler.development.js:5614
+commitPassiveMountOnFiber @ react-reconciler.development.js:5627
+flushPassiveEffects @ react-reconciler.development.js:6567
+eval @ react-reconciler.development.js:6507
+performWorkUntilDeadline @ scheduler.development.js:44
+F:\Projects\AI-Human\web-mmd\app\modules\MMDLoader.ts:1010 [RC式空域014-数据空间] sdef: true, PBR: true
+F:\Projects\AI-Human\web-mmd\app\page.tsx:33 TypeError: Cannot read properties of undefined (reading 'startsWith')
+    at PMXModel.useEffect (F:\Projects\AI-Human\web-mmd\app\components\three-world\model\PMXModel.tsx:31:17)
+    at react-stack-bottom-frame (react-reconciler.development.js:7241:22)
+    at runWithFiberInDEV (react-reconciler.development.js:399:20)
+    at commitHookEffectListMount (react-reconciler.development.js:4782:628)
+    at commitHookPassiveMountEffects (react-reconciler.development.js:4817:60)
+    at reconnectPassiveEffects (react-reconciler.development.js:5670:17)
+    at recursivelyTraverseReconnectPassiveEffects (react-reconciler.development.js:5661:68)
+    at reconnectPassiveEffects (react-reconciler.development.js:5669:17)
+    at recursivelyTraverseReconnectPassiveEffects (react-reconciler.development.js:5661:68)
+    at reconnectPassiveEffects (react-reconciler.development.js:5669:17)
+    at recursivelyTraverseReconnectPassiveEffects (react-reconciler.development.js:5661:68)
+    at commitPassiveMountOnFiber (react-reconciler.development.js:5648:451)
+    at recursivelyTraversePassiveMountEffects (react-reconciler.development.js:5614:106)
+    at commitPassiveMountOnFiber (react-reconciler.development.js:5656:17)
+    at recursivelyTraversePassiveMountEffects (react-reconciler.development.js:5614:106)
+    at commitPassiveMountOnFiber (react-reconciler.development.js:5622:17)
+    at recursivelyTraversePassiveMountEffects (react-reconciler.development.js:5614:106)
+    at commitPassiveMountOnFiber (react-reconciler.development.js:5622:17)
+    at recursivelyTraversePassiveMountEffects (react-reconciler.development.js:5614:106)
+    at commitPassiveMountOnFiber (react-reconciler.development.js:5622:17)
+    at recursivelyTraversePassiveMountEffects (react-reconciler.development.js:5614:106)
+    at commitPassiveMountOnFiber (react-reconciler.development.js:5622:17)
+    at recursivelyTraversePassiveMountEffects (react-reconciler.development.js:5614:106)
+    at commitPassiveMountOnFiber (react-reconciler.development.js:5648:306)
+    at recursivelyTraversePassiveMountEffects (react-reconciler.development.js:5614:106)
+    at commitPassiveMountOnFiber (react-reconciler.development.js:5656:17)
+    at recursivelyTraversePassiveMountEffects (react-reconciler.development.js:5614:106)
+    at commitPassiveMountOnFiber (react-reconciler.development.js:5656:17)
+    at recursivelyTraversePassiveMountEffects (react-reconciler.development.js:5614:106)
+    at commitPassiveMountOnFiber (react-reconciler.development.js:5656:17)
+    at recursivelyTraversePassiveMountEffects (react-reconciler.development.js:5614:106)
+    at commitPassiveMountOnFiber (react-reconciler.development.js:5656:17)
+    at recursivelyTraversePassiveMountEffects (react-reconciler.development.js:5614:106)
+    at commitPassiveMountOnFiber (react-reconciler.development.js:5656:17)
+    at recursivelyTraversePassiveMountEffects (react-reconciler.development.js:5614:106)
+    at commitPassiveMountOnFiber (react-reconciler.development.js:5656:17)
+    at recursivelyTraversePassiveMountEffects (react-reconciler.development.js:5614:106)
+    at commitPassiveMountOnFiber (react-reconciler.development.js:5656:17)
+    at recursivelyTraversePassiveMountEffects (react-reconciler.development.js:5614:106)
+    at commitPassiveMountOnFiber (react-reconciler.development.js:5656:17)
+    at recursivelyTraversePassiveMountEffects (react-reconciler.development.js:5614:106)
+    at commitPassiveMountOnFiber (react-reconciler.development.js:5656:17)
+    at recursivelyTraversePassiveMountEffects (react-reconciler.development.js:5614:106)
+    at commitPassiveMountOnFiber (react-reconciler.development.js:5656:17)
+    at recursivelyTraversePassiveMountEffects (react-reconciler.development.js:5614:106)
+    at commitPassiveMountOnFiber (react-reconciler.development.js:5656:17)
+    at recursivelyTraversePassiveMountEffects (react-reconciler.development.js:5614:106)
+    at commitPassiveMountOnFiber (react-reconciler.development.js:5656:17)
+    at recursivelyTraversePassiveMountEffects (react-reconciler.development.js:5614:106)
+    at commitPassiveMountOnFiber (react-reconciler.development.js:5656:17)
+
+The above error occurred in the <CanvasImpl> component. It was handled by the <ErrorBoundaryHandler> error boundary.
+onCaughtError @ error-boundary-callbacks.js:68
+logCaughtError @ react-dom-client.development.js:8528
+runWithFiberInDEV @ react-dom-client.development.js:872
+update.callback @ react-dom-client.development.js:8561
+callCallback @ react-dom-client.development.js:6554
+commitCallbacks @ react-dom-client.development.js:6574
+runWithFiberInDEV @ react-dom-client.development.js:872
+commitClassCallbacks @ react-dom-client.development.js:12507
+commitLayoutEffectOnFiber @ react-dom-client.development.js:13125
+recursivelyTraverseLayoutEffects @ react-dom-client.development.js:14121
+commitLayoutEffectOnFiber @ react-dom-client.development.js:13048
+recursivelyTraverseLayoutEffects @ react-dom-client.development.js:14121
+commitLayoutEffectOnFiber @ react-dom-client.development.js:13053
+recursivelyTraverseLayoutEffects @ react-dom-client.development.js:14121
+commitLayoutEffectOnFiber @ react-dom-client.development.js:13048
+recursivelyTraverseLayoutEffects @ react-dom-client.development.js:14121
+commitLayoutEffectOnFiber @ react-dom-client.development.js:13048
+recursivelyTraverseLayoutEffects @ react-dom-client.development.js:14121
+commitLayoutEffectOnFiber @ react-dom-client.development.js:13255
+recursivelyTraverseLayoutEffects @ react-dom-client.development.js:14121
+commitLayoutEffectOnFiber @ react-dom-client.development.js:13255
+recursivelyTraverseLayoutEffects @ react-dom-client.development.js:14121
+commitLayoutEffectOnFiber @ react-dom-client.development.js:13048
+recursivelyTraverseLayoutEffects @ react-dom-client.development.js:14121
+commitLayoutEffectOnFiber @ react-dom-client.development.js:13048
+recursivelyTraverseLayoutEffects @ react-dom-client.development.js:14121
+commitLayoutEffectOnFiber @ react-dom-client.development.js:13164
+recursivelyTraverseLayoutEffects @ react-dom-client.development.js:14121
+commitLayoutEffectOnFiber @ react-dom-client.development.js:13164
+recursivelyTraverseLayoutEffects @ react-dom-client.development.js:14121
+commitLayoutEffectOnFiber @ react-dom-client.development.js:13048
+recursivelyTraverseLayoutEffects @ react-dom-client.development.js:14121
+commitLayoutEffectOnFiber @ react-dom-client.development.js:13048
+recursivelyTraverseLayoutEffects @ react-dom-client.development.js:14121
+commitLayoutEffectOnFiber @ react-dom-client.development.js:13255
+recursivelyTraverseLayoutEffects @ react-dom-client.development.js:14121
+commitLayoutEffectOnFiber @ react-dom-client.development.js:13048
+recursivelyTraverseLayoutEffects @ react-dom-client.development.js:14121
+commitLayoutEffectOnFiber @ react-dom-client.development.js:13048
+recursivelyTraverseLayoutEffects @ react-dom-client.development.js:14121
+commitLayoutEffectOnFiber @ react-dom-client.development.js:13053
+recursivelyTraverseLayoutEffects @ react-dom-client.development.js:14121
+commitLayoutEffectOnFiber @ react-dom-client.development.js:13048
+recursivelyTraverseLayoutEffects @ react-dom-client.development.js:14121
+commitLayoutEffectOnFiber @ react-dom-client.development.js:13053
+recursivelyTraverseLayoutEffects @ react-dom-client.development.js:14121
+commitLayoutEffectOnFiber @ react-dom-client.development.js:13048
+recursivelyTraverseLayoutEffects @ react-dom-client.development.js:14121
+commitLayoutEffectOnFiber @ react-dom-client.development.js:13048
+recursivelyTraverseLayoutEffects @ react-dom-client.development.js:14121
+commitLayoutEffectOnFiber @ react-dom-client.development.js:13053
+recursivelyTraverseLayoutEffects @ react-dom-client.development.js:14121
+commitLayoutEffectOnFiber @ react-dom-client.development.js:13048
+recursivelyTraverseLayoutEffects @ react-dom-client.development.js:14121
+commitLayoutEffectOnFiber @ react-dom-client.development.js:13255
+recursivelyTraverseLayoutEffects @ react-dom-client.development.js:14121
+commitLayoutEffectOnFiber @ react-dom-client.development.js:13255
+recursivelyTraverseLayoutEffects @ react-dom-client.development.js:14121
+commitLayoutEffectOnFiber @ react-dom-client.development.js:13255
+recursivelyTraverseLayoutEffects @ react-dom-client.development.js:14121
+commitLayoutEffectOnFiber @ react-dom-client.development.js:13255
+recursivelyTraverseLayoutEffects @ react-dom-client.development.js:14121
+commitLayoutEffectOnFiber @ react-dom-client.development.js:13255
+recursivelyTraverseLayoutEffects @ react-dom-client.development.js:14121
+commitLayoutEffectOnFiber @ react-dom-client.development.js:13255
+recursivelyTraverseLayoutEffects @ react-dom-client.development.js:14121
+commitLayoutEffectOnFiber @ react-dom-client.development.js:13048
+recursivelyTraverseLayoutEffects @ react-dom-client.development.js:14121
+commitLayoutEffectOnFiber @ react-dom-client.development.js:13053
+recursivelyTraverseLayoutEffects @ react-dom-client.development.js:14121
+commitLayoutEffectOnFiber @ react-dom-client.development.js:13048
+recursivelyTraverseLayoutEffects @ react-dom-client.development.js:14121
+commitLayoutEffectOnFiber @ react-dom-client.development.js:13048
+recursivelyTraverseLayoutEffects @ react-dom-client.development.js:14121
+commitLayoutEffectOnFiber @ react-dom-client.development.js:13048
+recursivelyTraverseLayoutEffects @ react-dom-client.development.js:14121
+commitLayoutEffectOnFiber @ react-dom-client.development.js:13255
+recursivelyTraverseLayoutEffects @ react-dom-client.development.js:14121
+commitLayoutEffectOnFiber @ react-dom-client.development.js:13048
+recursivelyTraverseLayoutEffects @ react-dom-client.development.js:14121
+commitLayoutEffectOnFiber @ react-dom-client.development.js:13048
+recursivelyTraverseLayoutEffects @ react-dom-client.development.js:14121
+commitLayoutEffectOnFiber @ react-dom-client.development.js:13255
+recursivelyTraverseLayoutEffects @ react-dom-client.development.js:14121
+commitLayoutEffectOnFiber @ react-dom-client.development.js:13130
+flushLayoutEffects @ react-dom-client.development.js:16156
+commitRoot @ react-dom-client.development.js:15997
+commitRootWhenReady @ react-dom-client.development.js:15228
+performWorkOnRoot @ react-dom-client.development.js:15147
+performWorkOnRootViaSchedulerTask @ react-dom-client.development.js:16816
+performWorkUntilDeadline @ scheduler.development.js:45
+<CanvasImpl>
+exports.jsx @ react-jsx-runtime.development.js:323
+Canvas @ react-three-fiber.esm.js:204
+react_stack_bottom_frame @ react-dom-client.development.js:23584
+renderWithHooks @ react-dom-client.development.js:6793
+updateFunctionComponent @ react-dom-client.development.js:9247
+beginWork @ react-dom-client.development.js:10858
+runWithFiberInDEV @ react-dom-client.development.js:872
+performUnitOfWork @ react-dom-client.development.js:15727
+workLoopConcurrentByScheduler @ react-dom-client.development.js:15721
+renderRootConcurrent @ react-dom-client.development.js:15696
+performWorkOnRoot @ react-dom-client.development.js:14990
+performWorkOnRootViaSchedulerTask @ react-dom-client.development.js:16816
+performWorkUntilDeadline @ scheduler.development.js:45
+<Canvas>
+exports.jsxDEV @ react-jsx-dev-runtime.development.js:323
+Home @ F:\Projects\AI-Human\web-mmd\app\page.tsx:33
+react_stack_bottom_frame @ react-dom-client.development.js:23584
+renderWithHooks @ react-dom-client.development.js:6793
+updateFunctionComponent @ react-dom-client.development.js:9247
+beginWork @ react-dom-client.development.js:10858
+runWithFiberInDEV @ react-dom-client.development.js:872
+performUnitOfWork @ react-dom-client.development.js:15727
+workLoopConcurrentByScheduler @ react-dom-client.development.js:15721
+renderRootConcurrent @ react-dom-client.development.js:15696
+performWorkOnRoot @ react-dom-client.development.js:14990
+performWorkOnRootViaSchedulerTask @ react-dom-client.development.js:16816
+performWorkUntilDeadline @ scheduler.development.js:45
+<Home>
+exports.jsx @ react-jsx-runtime.development.js:323
+ClientPageRoot @ client-page.js:20
+react_stack_bottom_frame @ react-dom-client.development.js:23584
+renderWithHooks @ react-dom-client.development.js:6793
+updateFunctionComponent @ react-dom-client.development.js:9247
+beginWork @ react-dom-client.development.js:10807
+runWithFiberInDEV @ react-dom-client.development.js:872
+performUnitOfWork @ react-dom-client.development.js:15727
+workLoopConcurrentByScheduler @ react-dom-client.development.js:15721
+renderRootConcurrent @ react-dom-client.development.js:15696
+performWorkOnRoot @ react-dom-client.development.js:14990
+performWorkOnRootViaSchedulerTask @ react-dom-client.development.js:16816
+performWorkUntilDeadline @ scheduler.development.js:45
+"use client"
+Function.all @ VM6461 <anonymous>:1
+initializeElement @ react-server-dom-webpack-client.browser.development.js:1376
+"use server"
+ResponseInstance @ react-server-dom-webpack-client.browser.development.js:2091
+createResponseFromOptions @ react-server-dom-webpack-client.browser.development.js:3155
+exports.createFromReadableStream @ react-server-dom-webpack-client.browser.development.js:3540
+eval @ app-index.js:130
+(app-pages-browser)/./node_modules/next/dist/client/app-index.js @ main-app.js?v=1773652981543:160
+options.factory @ webpack.js:1
+__webpack_require__ @ webpack.js:1
+fn @ webpack.js:1
+eval @ app-next-dev.js:14
+eval @ app-bootstrap.js:59
+loadScriptsInSequence @ app-bootstrap.js:24
+appBootstrap @ app-bootstrap.js:53
+eval @ app-next-dev.js:13
+(app-pages-browser)/./node_modules/next/dist/client/app-next-dev.js @ main-app.js?v=1773652981543:182
+options.factory @ webpack.js:1
+__webpack_require__ @ webpack.js:1
+__webpack_exec__ @ main-app.js?v=1773652981543:1878
+（匿名） @ main-app.js?v=1773652981543:1879
+webpackJsonpCallback @ webpack.js:1
+（匿名） @ main-app.js?v=1773652981543:9
+three.core.js:1926 THREE.WebGLRenderer: Context Lost.
+
+
+
+
+# 接下来的任务（前端）
+在 web-mmd/app 继续迭代功能
+
+## 要求
+1、要符合这个工程文件的目录结构和代码规范
+2、要在这个工程文件的基础上继续迭代，不能完全重新开始
+
+## 开发功能
+1、出现了新的BUG，看不到人
+2、Runtime TypeError
+
+
+The first argument must be one of type string, Buffer, ArrayBuffer, Array, or Array-like Object. Received type undefined
+
+app\modules\MMDLoader.ts (229:25) @ MMDLoader.loadPMX
+
+
+  227 | 		const parser = this._getParser();
+  228 |
+> 229 | 		const buffer = Buffer.from(url.split("base64,")[1], 'base64').buffer;
+      | 		                      ^
+  230 | 		const model = parser.parsePmx(buffer, true)
+  231 |
+  232 | 		return model
+
+3、index.js:123 Uncaught (in promise) TypeError: The first argument must be one of type string, Buffer, ArrayBuffer, Array, or Array-like Object. Received type undefined
+
+
+
+
+# 接下来的任务（前端）
+在 web-mmd/app 继续迭代功能
+
+## 要求
+1、要符合这个工程文件的目录结构和代码规范
+2、要在这个工程文件的基础上继续迭代，不能完全重新开始
+
+## 开发功能
+1、现在能到看到人了，但是没有动作，之前点击播放按钮，是能够播放动作的
+2、现在点击播放按钮（只有背景音和镜头视角切换），人物没有任何反应
+3、修复这个bUG
+4、以前人物是可以唱歌跳舞的，现在人物却只能待机了，检查下问题
+
+
+
+
+# 接下来的任务（前端）
+在 web-mmd/app 继续迭代功能
+
+## 要求
+1、要符合这个工程文件的目录结构和代码规范
+2、要在这个工程文件的基础上继续迭代，不能完全重新开始
+
+## 开发功能
+1、顶部做一个中英切换按钮，将所有模块能够切换中英文
+
+
+
+
+
+# 接下来的任务（前端）
+在 web-mmd/app 继续迭代功能
+
+## 要求
+1、要符合这个工程文件的目录结构和代码规范
+2、要在这个工程文件的基础上继续迭代，不能完全重新开始
+
+## 开发功能
+1、单独开发一个页面 https://localhost:3001/aihuman
+2、在这个页面上能够看到人物模型，人物呈待机状态
+3、这个页面上同样有舞台，人物站在舞台上
+4、在这个页面上点击讲话按钮，人物对口型朗读
+
+
+
+
+
+# 接下来的任务（前端）
+在 web-mmd/app 继续迭代功能
+
+## 要求
+1、要符合这个工程文件的目录结构和代码规范
+2、要在这个工程文件的基础上继续迭代，不能完全重新开始
+
+## 开发功能
+Runtime Error
+
+
+R3F: Button is not part of the THREE namespace! Did you forget to extend? See: https://docs.pmnd.rs/react-three-fiber/api/objects#using-3rd-party-objects-declaratively
+
+app\aihuman\page.tsx (17:7) @ Page
+
+
+  15 |   return (
+  16 |     <>
+> 17 |       <Canvas
+     |       ^
+  18 |         shadows
+  19 |         camera={{ position: [0, 12, 55], fov: 45, near: 0.1, far: 2000 }}
+  20 |       >
+
+
+
+
+
+# 接下来的任务（前端）
+在 web-mmd/app 继续迭代功能
+
+## 要求
+1、要符合这个工程文件的目录结构和代码规范
+2、要在这个工程文件的基础上继续迭代，不能完全重新开始
+
+## 开发功能
+### /aihuman BUG修复
+1、人物站姿有问题，人物应该是站在舞台上，而不是穿模站在舞台底下
+2、人物姿势全身是摊开的（没有读取动作文件），需要修正为正常待机姿势
+3、整个灯光有问题
+4、可以多参考下主页的做法，对/aihuman进行修复
+
+
+# 接下来的任务（前端）
+在 web-mmd/app 继续迭代功能
+
+## 要求
+1、要符合这个工程文件的目录结构和代码规范
+2、要在这个工程文件的基础上继续迭代，不能完全重新开始
+
+## 开发功能
+### /aihuman BUG修复
+1、人物所处的位置不对，人物应该站在舞台中央，而不是站在舞台底下，多参考下主页的做法，修正为正常位置
+2、摄像机初始视角不对，需要正对任务，多参考下主页的做法，修正为正常视角
+3、光线不对，需要多参考下主页的做法，修正为正常光线
+
+
+
+# 接下来的任务（前端）
+在 web-mmd/app 继续迭代功能
+
+## 要求
+1、要符合这个工程文件的目录结构和代码规范
+2、要在这个工程文件的基础上继续迭代，不能完全重新开始
+
+## 开发功能
+### /aihuman BUG修复
+[Funingna] sdef: true, PBR: true
+F:\Projects\AI-Human\web-mmd\app\modules\MMDLoader.ts:1037 [RC式空域014-数据空间] sdef: true, PBR: true
+2three.core.js:1968 THREE.PropertyBinding: No target node found for track: smoothCenter.position.
+warn @ three.core.js:1968
+F:\Projects\AI-Human\web-mmd\app\stores\useConfigStore.ts:81 migrate ConfigStore
+2F:\Projects\AI-Human\web-mmd\app\modules\MMDLoader.ts:1037 [Funingna] sdef: true, PBR: true
+three.core.js:1968 THREE.PropertyBinding: No target node found for track: smoothCenter.position.
+warn @ three.core.js:1968
+F:\Projects\AI-Human\web-mmd\app\modules\MMDLoader.ts:1037 [Funingna] sdef: true, PBR: true
+three.core.js:1968 THREE.PropertyBinding: No target node found for track: smoothCenter.position.
+warn @ three.core.js:1968
+F:\Projects\AI-Human\web-mmd\app\modules\MMDLoader.ts:1037 [Funingna] sdef: true, PBR: true
+three.core.js:1968 THREE.PropertyBinding: No target node found for track: smoothCenter.position.
+warn @ three.core.js:1968
+F:\Projects\AI-Human\web-mmd\app\modules\MMDLoader.ts:1037 [Funingna] sdef: true, PBR: true
+three.core.js:1968 THREE.PropertyBinding: No target node found for track: smoothCenter.position.
+warn @ three.core.js:1968
+three.core.js:1968 THREE.WebGLShadowMap: PCFSoftShadowMap has been deprecated. Using PCFShadowMap instead.
+warn @ three.core.js:1968
+F:\Projects\AI-Human\web-mmd\app\modules\MMDLoader.ts:1037 [Funingna] sdef: true, PBR: true
+F:\Projects\AI-Human\web-mmd\app\aihuman\AihumanScene.tsx:146 THREE.PropertyBinding: No target node found for track: smoothCenter.position.
+warn @ three.core.js:1968
+bind @ three.core.js:36855
+_getValue_unbound @ three.core.js:36831
+saveOriginalState @ three.core.js:36426
+_activateAction @ three.core.js:37914
+play @ three.core.js:37285
+AihumanScene.useEffect.init @ F:\Projects\AI-Human\web-mmd\app\aihuman\AihumanScene.tsx:146
+await in AihumanScene.useEffect.init
+AihumanScene.useEffect @ F:\Projects\AI-Human\web-mmd\app\aihuman\AihumanScene.tsx:150
+react-stack-bottom-frame @ react-reconciler.development.js:7241
+runWithFiberInDEV @ react-reconciler.development.js:399
+commitHookEffectListMount @ react-reconciler.development.js:4782
+commitHookPassiveMountEffects @ react-reconciler.development.js:4817
+commitPassiveMountOnFiber @ react-reconciler.development.js:5623
+recursivelyTraversePassiveMountEffects @ react-reconciler.development.js:5614
+commitPassiveMountOnFiber @ react-reconciler.development.js:5648
+recursivelyTraversePassiveMountEffects @ react-reconciler.development.js:5614
+commitPassiveMountOnFiber @ react-reconciler.development.js:5656
+recursivelyTraversePassiveMountEffects @ react-reconciler.development.js:5614
+commitPassiveMountOnFiber @ react-reconciler.development.js:5656
+recursivelyTraversePassiveMountEffects @ react-reconciler.development.js:5614
+commitPassiveMountOnFiber @ react-reconciler.development.js:5656
+recursivelyTraversePassiveMountEffects @ react-reconciler.development.js:5614
+commitPassiveMountOnFiber @ react-reconciler.development.js:5656
+recursivelyTraversePassiveMountEffects @ react-reconciler.development.js:5614
+commitPassiveMountOnFiber @ react-reconciler.development.js:5656
+recursivelyTraversePassiveMountEffects @ react-reconciler.development.js:5614
+commitPassiveMountOnFiber @ react-reconciler.development.js:5656
+recursivelyTraversePassiveMountEffects @ react-reconciler.development.js:5614
+commitPassiveMountOnFiber @ react-reconciler.development.js:5656
+recursivelyTraversePassiveMountEffects @ react-reconciler.development.js:5614
+commitPassiveMountOnFiber @ react-reconciler.development.js:5656
+recursivelyTraversePassiveMountEffects @ react-reconciler.development.js:5614
+commitPassiveMountOnFiber @ react-reconciler.development.js:5656
+recursivelyTraversePassiveMountEffects @ react-reconciler.development.js:5614
+commitPassiveMountOnFiber @ react-reconciler.development.js:5656
+recursivelyTraversePassiveMountEffects @ react-reconciler.development.js:5614
+commitPassiveMountOnFiber @ react-reconciler.development.js:5656
+recursivelyTraversePassiveMountEffects @ react-reconciler.development.js:5614
+commitPassiveMountOnFiber @ react-reconciler.development.js:5656
+recursivelyTraversePassiveMountEffects @ react-reconciler.development.js:5614
+commitPassiveMountOnFiber @ react-reconciler.development.js:5656
+recursivelyTraversePassiveMountEffects @ react-reconciler.development.js:5614
+commitPassiveMountOnFiber @ react-reconciler.development.js:5656
+recursivelyTraversePassiveMountEffects @ react-reconciler.development.js:5614
+commitPassiveMountOnFiber @ react-reconciler.development.js:5622
+recursivelyTraversePassiveMountEffects @ react-reconciler.development.js:5614
+commitPassiveMountOnFiber @ react-reconciler.development.js:5622
+recursivelyTraversePassiveMountEffects @ react-reconciler.development.js:5614
+commitPassiveMountOnFiber @ react-reconciler.development.js:5622
+recursivelyTraversePassiveMountEffects @ react-reconciler.development.js:5614
+commitPassiveMountOnFiber @ react-reconciler.development.js:5622
+recursivelyTraversePassiveMountEffects @ react-reconciler.development.js:5614
+commitPassiveMountOnFiber @ react-reconciler.development.js:5622
+recursivelyTraversePassiveMountEffects @ react-reconciler.development.js:5614
+commitPassiveMountOnFiber @ react-reconciler.development.js:5622
+recursivelyTraversePassiveMountEffects @ react-reconciler.development.js:5614
+commitPassiveMountOnFiber @ react-reconciler.development.js:5622
+recursivelyTraversePassiveMountEffects @ react-reconciler.development.js:5614
+commitPassiveMountOnFiber @ react-reconciler.development.js:5622
+recursivelyTraversePassiveMountEffects @ react-reconciler.development.js:5614
+commitPassiveMountOnFiber @ react-reconciler.development.js:5622
+recursivelyTraversePassiveMountEffects @ react-reconciler.development.js:5614
+commitPassiveMountOnFiber @ react-reconciler.development.js:5622
+recursivelyTraversePassiveMountEffects @ react-reconciler.development.js:5614
+commitPassiveMountOnFiber @ react-reconciler.development.js:5622
+recursivelyTraversePassiveMountEffects @ react-reconciler.development.js:5614
+commitPassiveMountOnFiber @ react-reconciler.development.js:5622
+recursivelyTraversePassiveMountEffects @ react-reconciler.development.js:5614
+commitPassiveMountOnFiber @ react-reconciler.development.js:5656
+recursivelyTraversePassiveMountEffects @ react-reconciler.development.js:5614
+commitPassiveMountOnFiber @ react-reconciler.development.js:5622
+recursivelyTraversePassiveMountEffects @ react-reconciler.development.js:5614
+commitPassiveMountOnFiber @ react-reconciler.development.js:5627
+flushPassiveEffects @ react-reconciler.development.js:6567
+commitRootImpl @ react-reconciler.development.js:6522
+commitRoot @ react-reconciler.development.js:6480
+commitRootWhenReady @ react-reconciler.development.js:6082
+performWorkOnRoot @ react-reconciler.development.js:6062
+performSyncWorkOnRoot @ react-reconciler.development.js:1364
+flushSyncWorkAcrossRoots_impl @ react-reconciler.development.js:1288
+commitRootImpl @ react-reconciler.development.js:6525
+commitRoot @ react-reconciler.development.js:6480
+commitRootWhenReady @ react-reconciler.development.js:6082
+performWorkOnRoot @ react-reconciler.development.js:6062
+performWorkOnRootViaSchedulerTask @ react-reconciler.development.js:1356
+performWorkUntilDeadline @ scheduler.development.js:44
+F:\Projects\AI-Human\web-mmd\app\modules\MMDLoader.ts:1037 [Funingna] sdef: true, PBR: true
+F:\Projects\AI-Human\web-mmd\app\aihuman\AihumanScene.tsx:146 THREE.PropertyBinding: No target node found for track: smoothCenter.position.
+warn @ three.core.js:1968
+bind @ three.core.js:36855
+_getValue_unbound @ three.core.js:36831
+saveOriginalState @ three.core.js:36426
+_activateAction @ three.core.js:37914
+play @ three.core.js:37285
+AihumanScene.useEffect.init @ F:\Projects\AI-Human\web-mmd\app\aihuman\AihumanScene.tsx:146
+await in AihumanScene.useEffect.init
+AihumanScene.useEffect @ F:\Projects\AI-Human\web-mmd\app\aihuman\AihumanScene.tsx:150
+react-stack-bottom-frame @ react-reconciler.development.js:7241
+runWithFiberInDEV @ react-reconciler.development.js:399
+commitHookEffectListMount @ react-reconciler.development.js:4782
+commitHookPassiveMountEffects @ react-reconciler.development.js:4817
+commitPassiveMountOnFiber @ react-reconciler.development.js:5623
+recursivelyTraversePassiveMountEffects @ react-reconciler.development.js:5614
+commitPassiveMountOnFiber @ react-reconciler.development.js:5648
+recursivelyTraversePassiveMountEffects @ react-reconciler.development.js:5614
+commitPassiveMountOnFiber @ react-reconciler.development.js:5656
+recursivelyTraversePassiveMountEffects @ react-reconciler.development.js:5614
+commitPassiveMountOnFiber @ react-reconciler.development.js:5656
+recursivelyTraversePassiveMountEffects @ react-reconciler.development.js:5614
+commitPassiveMountOnFiber @ react-reconciler.development.js:5656
+recursivelyTraversePassiveMountEffects @ react-reconciler.development.js:5614
+commitPassiveMountOnFiber @ react-reconciler.development.js:5656
+recursivelyTraversePassiveMountEffects @ react-reconciler.development.js:5614
+commitPassiveMountOnFiber @ react-reconciler.development.js:5656
+recursivelyTraversePassiveMountEffects @ react-reconciler.development.js:5614
+commitPassiveMountOnFiber @ react-reconciler.development.js:5656
+recursivelyTraversePassiveMountEffects @ react-reconciler.development.js:5614
+commitPassiveMountOnFiber @ react-reconciler.development.js:5656
+recursivelyTraversePassiveMountEffects @ react-reconciler.development.js:5614
+commitPassiveMountOnFiber @ react-reconciler.development.js:5656
+recursivelyTraversePassiveMountEffects @ react-reconciler.development.js:5614
+commitPassiveMountOnFiber @ react-reconciler.development.js:5656
+recursivelyTraversePassiveMountEffects @ react-reconciler.development.js:5614
+commitPassiveMountOnFiber @ react-reconciler.development.js:5656
+recursivelyTraversePassiveMountEffects @ react-reconciler.development.js:5614
+commitPassiveMountOnFiber @ react-reconciler.development.js:5656
+recursivelyTraversePassiveMountEffects @ react-reconciler.development.js:5614
+commitPassiveMountOnFiber @ react-reconciler.development.js:5656
+recursivelyTraversePassiveMountEffects @ react-reconciler.development.js:5614
+commitPassiveMountOnFiber @ react-reconciler.development.js:5656
+recursivelyTraversePassiveMountEffects @ react-reconciler.development.js:5614
+commitPassiveMountOnFiber @ react-reconciler.development.js:5656
+recursivelyTraversePassiveMountEffects @ react-reconciler.development.js:5614
+commitPassiveMountOnFiber @ react-reconciler.development.js:5622
+recursivelyTraversePassiveMountEffects @ react-reconciler.development.js:5614
+commitPassiveMountOnFiber @ react-reconciler.development.js:5622
+recursivelyTraversePassiveMountEffects @ react-reconciler.development.js:5614
+commitPassiveMountOnFiber @ react-reconciler.development.js:5622
+recursivelyTraversePassiveMountEffects @ react-reconciler.development.js:5614
+commitPassiveMountOnFiber @ react-reconciler.development.js:5622
+recursivelyTraversePassiveMountEffects @ react-reconciler.development.js:5614
+commitPassiveMountOnFiber @ react-reconciler.development.js:5622
+recursivelyTraversePassiveMountEffects @ react-reconciler.development.js:5614
+commitPassiveMountOnFiber @ react-reconciler.development.js:5622
+recursivelyTraversePassiveMountEffects @ react-reconciler.development.js:5614
+commitPassiveMountOnFiber @ react-reconciler.development.js:5622
+recursivelyTraversePassiveMountEffects @ react-reconciler.development.js:5614
+commitPassiveMountOnFiber @ react-reconciler.development.js:5622
+recursivelyTraversePassiveMountEffects @ react-reconciler.development.js:5614
+commitPassiveMountOnFiber @ react-reconciler.development.js:5622
+recursivelyTraversePassiveMountEffects @ react-reconciler.development.js:5614
+commitPassiveMountOnFiber @ react-reconciler.development.js:5622
+recursivelyTraversePassiveMountEffects @ react-reconciler.development.js:5614
+commitPassiveMountOnFiber @ react-reconciler.development.js:5622
+recursivelyTraversePassiveMountEffects @ react-reconciler.development.js:5614
+commitPassiveMountOnFiber @ react-reconciler.development.js:5622
+recursivelyTraversePassiveMountEffects @ react-reconciler.development.js:5614
+commitPassiveMountOnFiber @ react-reconciler.development.js:5656
+recursivelyTraversePassiveMountEffects @ react-reconciler.development.js:5614
+commitPassiveMountOnFiber @ react-reconciler.development.js:5622
+recursivelyTraversePassiveMountEffects @ react-reconciler.development.js:5614
+commitPassiveMountOnFiber @ react-reconciler.development.js:5627
+flushPassiveEffects @ react-reconciler.development.js:6567
+commitRootImpl @ react-reconciler.development.js:6522
+commitRoot @ react-reconciler.development.js:6480
+commitRootWhenReady @ react-reconciler.development.js:6082
+performWorkOnRoot @ react-reconciler.development.js:6062
+performSyncWorkOnRoot @ react-reconciler.development.js:1364
+flushSyncWorkAcrossRoots_impl @ react-reconciler.development.js:1288
+commitRootImpl @ react-reconciler.development.js:6525
+commitRoot @ react-reconciler.development.js:6480
+commitRootWhenReady @ react-reconciler.development.js:6082
+performWorkOnRoot @ react-reconciler.development.js:6062
+performWorkOnRootViaSchedulerTask @ react-reconciler.development.js:1356
+performWorkUntilDeadline @ scheduler.development.js:44
+F:\Projects\AI-Human\web-mmd\app\modules\MMDLoader.ts:1037 [Funingna] sdef: true, PBR: true
+F:\Projects\AI-Human\web-mmd\app\aihuman\AihumanScene.tsx:146 THREE.PropertyBinding: No target node found for track: smoothCenter.position.
+warn @ three.core.js:1968
+bind @ three.core.js:36855
+_getValue_unbound @ three.core.js:36831
+saveOriginalState @ three.core.js:36426
+_activateAction @ three.core.js:37914
+play @ three.core.js:37285
+AihumanScene.useEffect.init @ F:\Projects\AI-Human\web-mmd\app\aihuman\AihumanScene.tsx:146
+await in AihumanScene.useEffect.init
+AihumanScene.useEffect @ F:\Projects\AI-Human\web-mmd\app\aihuman\AihumanScene.tsx:150
+react-stack-bottom-frame @ react-reconciler.development.js:7241
+runWithFiberInDEV @ react-reconciler.development.js:399
+commitHookEffectListMount @ react-reconciler.development.js:4782
+commitHookPassiveMountEffects @ react-reconciler.development.js:4817
+commitPassiveMountOnFiber @ react-reconciler.development.js:5623
+recursivelyTraversePassiveMountEffects @ react-reconciler.development.js:5614
+commitPassiveMountOnFiber @ react-reconciler.development.js:5648
+recursivelyTraversePassiveMountEffects @ react-reconciler.development.js:5614
+commitPassiveMountOnFiber @ react-reconciler.development.js:5656
+recursivelyTraversePassiveMountEffects @ react-reconciler.development.js:5614
+commitPassiveMountOnFiber @ react-reconciler.development.js:5656
+recursivelyTraversePassiveMountEffects @ react-reconciler.development.js:5614
+commitPassiveMountOnFiber @ react-reconciler.development.js:5656
+recursivelyTraversePassiveMountEffects @ react-reconciler.development.js:5614
+commitPassiveMountOnFiber @ react-reconciler.development.js:5656
+recursivelyTraversePassiveMountEffects @ react-reconciler.development.js:5614
+commitPassiveMountOnFiber @ react-reconciler.development.js:5656
+recursivelyTraversePassiveMountEffects @ react-reconciler.development.js:5614
+commitPassiveMountOnFiber @ react-reconciler.development.js:5656
+recursivelyTraversePassiveMountEffects @ react-reconciler.development.js:5614
+commitPassiveMountOnFiber @ react-reconciler.development.js:5656
+recursivelyTraversePassiveMountEffects @ react-reconciler.development.js:5614
+commitPassiveMountOnFiber @ react-reconciler.development.js:5656
+recursivelyTraversePassiveMountEffects @ react-reconciler.development.js:5614
+commitPassiveMountOnFiber @ react-reconciler.development.js:5656
+recursivelyTraversePassiveMountEffects @ react-reconciler.development.js:5614
+commitPassiveMountOnFiber @ react-reconciler.development.js:5656
+recursivelyTraversePassiveMountEffects @ react-reconciler.development.js:5614
+commitPassiveMountOnFiber @ react-reconciler.development.js:5656
+recursivelyTraversePassiveMountEffects @ react-reconciler.development.js:5614
+commitPassiveMountOnFiber @ react-reconciler.development.js:5656
+recursivelyTraversePassiveMountEffects @ react-reconciler.development.js:5614
+commitPassiveMountOnFiber @ react-reconciler.development.js:5656
+recursivelyTraversePassiveMountEffects @ react-reconciler.development.js:5614
+commitPassiveMountOnFiber @ react-reconciler.development.js:5656
+recursivelyTraversePassiveMountEffects @ react-reconciler.development.js:5614
+commitPassiveMountOnFiber @ react-reconciler.development.js:5622
+recursivelyTraversePassiveMountEffects @ react-reconciler.development.js:5614
+commitPassiveMountOnFiber @ react-reconciler.development.js:5622
+recursivelyTraversePassiveMountEffects @ react-reconciler.development.js:5614
+commitPassiveMountOnFiber @ react-reconciler.development.js:5622
+recursivelyTraversePassiveMountEffects @ react-reconciler.development.js:5614
+commitPassiveMountOnFiber @ react-reconciler.development.js:5622
+recursivelyTraversePassiveMountEffects @ react-reconciler.development.js:5614
+commitPassiveMountOnFiber @ react-reconciler.development.js:5622
+recursivelyTraversePassiveMountEffects @ react-reconciler.development.js:5614
+commitPassiveMountOnFiber @ react-reconciler.development.js:5622
+recursivelyTraversePassiveMountEffects @ react-reconciler.development.js:5614
+commitPassiveMountOnFiber @ react-reconciler.development.js:5622
+recursivelyTraversePassiveMountEffects @ react-reconciler.development.js:5614
+commitPassiveMountOnFiber @ react-reconciler.development.js:5622
+recursivelyTraversePassiveMountEffects @ react-reconciler.development.js:5614
+commitPassiveMountOnFiber @ react-reconciler.development.js:5622
+recursivelyTraversePassiveMountEffects @ react-reconciler.development.js:5614
+commitPassiveMountOnFiber @ react-reconciler.development.js:5622
+recursivelyTraversePassiveMountEffects @ react-reconciler.development.js:5614
+commitPassiveMountOnFiber @ react-reconciler.development.js:5622
+recursivelyTraversePassiveMountEffects @ react-reconciler.development.js:5614
+commitPassiveMountOnFiber @ react-reconciler.development.js:5622
+recursivelyTraversePassiveMountEffects @ react-reconciler.development.js:5614
+commitPassiveMountOnFiber @ react-reconciler.development.js:5656
+recursivelyTraversePassiveMountEffects @ react-reconciler.development.js:5614
+commitPassiveMountOnFiber @ react-reconciler.development.js:5622
+recursivelyTraversePassiveMountEffects @ react-reconciler.development.js:5614
+commitPassiveMountOnFiber @ react-reconciler.development.js:5627
+flushPassiveEffects @ react-reconciler.development.js:6567
+commitRootImpl @ react-reconciler.development.js:6522
+commitRoot @ react-reconciler.development.js:6480
+commitRootWhenReady @ react-reconciler.development.js:6082
+performWorkOnRoot @ react-reconciler.development.js:6062
+performSyncWorkOnRoot @ react-reconciler.development.js:1364
+flushSyncWorkAcrossRoots_impl @ react-reconciler.development.js:1288
+commitRootImpl @ react-reconciler.development.js:6525
+commitRoot @ react-reconciler.development.js:6480
+commitRootWhenReady @ react-reconciler.development.js:6082
+performWorkOnRoot @ react-reconciler.development.js:6062
+performWorkOnRootViaSchedulerTask @ react-reconciler.development.js:1356
+performWorkUntilDeadline @ scheduler.development.js:44
+F:\Projects\AI-Human\web-mmd\app\modules\MMDLoader.ts:1037 [Funingna] sdef: true, PBR: true
+F:\Projects\AI-Human\web-mmd\app\aihuman\AihumanScene.tsx:146 THREE.PropertyBinding: No target node found for track: smoothCenter.position.
+warn @ three.core.js:1968
+bind @ three.core.js:36855
+_getValue_unbound @ three.core.js:36831
+saveOriginalState @ three.core.js:36426
+_activateAction @ three.core.js:37914
+play @ three.core.js:37285
+AihumanScene.useEffect.init @ F:\Projects\AI-Human\web-mmd\app\aihuman\AihumanScene.tsx:146
+await in AihumanScene.useEffect.init
+AihumanScene.useEffect @ F:\Projects\AI-Human\web-mmd\app\aihuman\AihumanScene.tsx:150
+react-stack-bottom-frame @ react-reconciler.development.js:7241
+runWithFiberInDEV @ react-reconciler.development.js:399
+commitHookEffectListMount @ react-reconciler.development.js:4782
+commitHookPassiveMountEffects @ react-reconciler.development.js:4817
+commitPassiveMountOnFiber @ react-reconciler.development.js:5623
+recursivelyTraversePassiveMountEffects @ react-reconciler.development.js:5614
+commitPassiveMountOnFiber @ react-reconciler.development.js:5648
+recursivelyTraversePassiveMountEffects @ react-reconciler.development.js:5614
+commitPassiveMountOnFiber @ react-reconciler.development.js:5656
+recursivelyTraversePassiveMountEffects @ react-reconciler.development.js:5614
+commitPassiveMountOnFiber @ react-reconciler.development.js:5656
+recursivelyTraversePassiveMountEffects @ react-reconciler.development.js:5614
+commitPassiveMountOnFiber @ react-reconciler.development.js:5656
+recursivelyTraversePassiveMountEffects @ react-reconciler.development.js:5614
+commitPassiveMountOnFiber @ react-reconciler.development.js:5656
+recursivelyTraversePassiveMountEffects @ react-reconciler.development.js:5614
+commitPassiveMountOnFiber @ react-reconciler.development.js:5656
+recursivelyTraversePassiveMountEffects @ react-reconciler.development.js:5614
+commitPassiveMountOnFiber @ react-reconciler.development.js:5656
+recursivelyTraversePassiveMountEffects @ react-reconciler.development.js:5614
+commitPassiveMountOnFiber @ react-reconciler.development.js:5656
+recursivelyTraversePassiveMountEffects @ react-reconciler.development.js:5614
+commitPassiveMountOnFiber @ react-reconciler.development.js:5656
+recursivelyTraversePassiveMountEffects @ react-reconciler.development.js:5614
+commitPassiveMountOnFiber @ react-reconciler.development.js:5656
+recursivelyTraversePassiveMountEffects @ react-reconciler.development.js:5614
+commitPassiveMountOnFiber @ react-reconciler.development.js:5656
+recursivelyTraversePassiveMountEffects @ react-reconciler.development.js:5614
+commitPassiveMountOnFiber @ react-reconciler.development.js:5656
+recursivelyTraversePassiveMountEffects @ react-reconciler.development.js:5614
+commitPassiveMountOnFiber @ react-reconciler.development.js:5656
+recursivelyTraversePassiveMountEffects @ react-reconciler.development.js:5614
+commitPassiveMountOnFiber @ react-reconciler.development.js:5656
+recursivelyTraversePassiveMountEffects @ react-reconciler.development.js:5614
+commitPassiveMountOnFiber @ react-reconciler.development.js:5656
+recursivelyTraversePassiveMountEffects @ react-reconciler.development.js:5614
+commitPassiveMountOnFiber @ react-reconciler.development.js:5622
+recursivelyTraversePassiveMountEffects @ react-reconciler.development.js:5614
+commitPassiveMountOnFiber @ react-reconciler.development.js:5622
+recursivelyTraversePassiveMountEffects @ react-reconciler.development.js:5614
+commitPassiveMountOnFiber @ react-reconciler.development.js:5622
+recursivelyTraversePassiveMountEffects @ react-reconciler.development.js:5614
+commitPassiveMountOnFiber @ react-reconciler.development.js:5622
+recursivelyTraversePassiveMountEffects @ react-reconciler.development.js:5614
+commitPassiveMountOnFiber @ react-reconciler.development.js:5622
+recursivelyTraversePassiveMountEffects @ react-reconciler.development.js:5614
+commitPassiveMountOnFiber @ react-reconciler.development.js:5622
+recursivelyTraversePassiveMountEffects @ react-reconciler.development.js:5614
+commitPassiveMountOnFiber @ react-reconciler.development.js:5622
+recursivelyTraversePassiveMountEffects @ react-reconciler.development.js:5614
+commitPassiveMountOnFiber @ react-reconciler.development.js:5622
+recursivelyTraversePassiveMountEffects @ react-reconciler.development.js:5614
+commitPassiveMountOnFiber @ react-reconciler.development.js:5622
+recursivelyTraversePassiveMountEffects @ react-reconciler.development.js:5614
+commitPassiveMountOnFiber @ react-reconciler.development.js:5622
+recursivelyTraversePassiveMountEffects @ react-reconciler.development.js:5614
+commitPassiveMountOnFiber @ react-reconciler.development.js:5622
+recursivelyTraversePassiveMountEffects @ react-reconciler.development.js:5614
+commitPassiveMountOnFiber @ react-reconciler.development.js:5622
+recursivelyTraversePassiveMountEffects @ react-reconciler.development.js:5614
+commitPassiveMountOnFiber @ react-reconciler.development.js:5656
+recursivelyTraversePassiveMountEffects @ react-reconciler.development.js:5614
+commitPassiveMountOnFiber @ react-reconciler.development.js:5622
+recursivelyTraversePassiveMountEffects @ react-reconciler.development.js:5614
+commitPassiveMountOnFiber @ react-reconciler.development.js:5627
+flushPassiveEffects @ react-reconciler.development.js:6567
+commitRootImpl @ react-reconciler.development.js:6522
+commitRoot @ react-reconciler.development.js:6480
+commitRootWhenReady @ react-reconciler.development.js:6082
+performWorkOnRoot @ react-reconciler.development.js:6062
+performSyncWorkOnRoot @ react-reconciler.development.js:1364
+flushSyncWorkAcrossRoots_impl @ react-reconciler.development.js:1288
+commitRootImpl @ react-reconciler.development.js:6525
+commitRoot @ react-reconciler.development.js:6480
+commitRootWhenReady @ react-reconciler.development.js:6082
+performWorkOnRoot @ react-reconciler.development.js:6062
+performWorkOnRootViaSchedulerTask @ react-reconciler.development.js:1356
+performWorkUntilDeadline @ scheduler.development.js:44
+F:\Projects\AI-Human\web-mmd\app\modules\MMDLoader.ts:1037 [Funingna] sdef: true, PBR: true
+F:\Projects\AI-Human\web-mmd\app\aihuman\AihumanScene.tsx:146 THREE.PropertyBinding: No target node found for track: smoothCenter.position.
+warn @ three.core.js:1968
+bind @ three.core.js:36855
+_getValue_unbound @ three.core.js:36831
+saveOriginalState @ three.core.js:36426
+_activateAction @ three.core.js:37914
+play @ three.core.js:37285
+AihumanScene.useEffect.init @ F:\Projects\AI-Human\web-mmd\app\aihuman\AihumanScene.tsx:146
+await in AihumanScene.useEffect.init
+AihumanScene.useEffect @ F:\Projects\AI-Human\web-mmd\app\aihuman\AihumanScene.tsx:150
+react-stack-bottom-frame @ react-reconciler.development.js:7241
+runWithFiberInDEV @ react-reconciler.development.js:399
+commitHookEffectListMount @ react-reconciler.development.js:4782
+commitHookPassiveMountEffects @ react-reconciler.development.js:4817
+commitPassiveMountOnFiber @ react-reconciler.development.js:5623
+recursivelyTraversePassiveMountEffects @ react-reconciler.development.js:5614
+commitPassiveMountOnFiber @ react-reconciler.development.js:5648
+recursivelyTraversePassiveMountEffects @ react-reconciler.development.js:5614
+commitPassiveMountOnFiber @ react-reconciler.development.js:5656
+recursivelyTraversePassiveMountEffects @ react-reconciler.development.js:5614
+commitPassiveMountOnFiber @ react-reconciler.development.js:5656
+recursivelyTraversePassiveMountEffects @ react-reconciler.development.js:5614
+commitPassiveMountOnFiber @ react-reconciler.development.js:5656
+recursivelyTraversePassiveMountEffects @ react-reconciler.development.js:5614
+commitPassiveMountOnFiber @ react-reconciler.development.js:5656
+recursivelyTraversePassiveMountEffects @ react-reconciler.development.js:5614
+commitPassiveMountOnFiber @ react-reconciler.development.js:5656
+recursivelyTraversePassiveMountEffects @ react-reconciler.development.js:5614
+commitPassiveMountOnFiber @ react-reconciler.development.js:5656
+recursivelyTraversePassiveMountEffects @ react-reconciler.development.js:5614
+commitPassiveMountOnFiber @ react-reconciler.development.js:5656
+recursivelyTraversePassiveMountEffects @ react-reconciler.development.js:5614
+commitPassiveMountOnFiber @ react-reconciler.development.js:5656
+recursivelyTraversePassiveMountEffects @ react-reconciler.development.js:5614
+commitPassiveMountOnFiber @ react-reconciler.development.js:5656
+recursivelyTraversePassiveMountEffects @ react-reconciler.development.js:5614
+commitPassiveMountOnFiber @ react-reconciler.development.js:5656
+recursivelyTraversePassiveMountEffects @ react-reconciler.development.js:5614
+commitPassiveMountOnFiber @ react-reconciler.development.js:5656
+recursivelyTraversePassiveMountEffects @ react-reconciler.development.js:5614
+commitPassiveMountOnFiber @ react-reconciler.development.js:5656
+recursivelyTraversePassiveMountEffects @ react-reconciler.development.js:5614
+commitPassiveMountOnFiber @ react-reconciler.development.js:5656
+recursivelyTraversePassiveMountEffects @ react-reconciler.development.js:5614
+commitPassiveMountOnFiber @ react-reconciler.development.js:5656
+recursivelyTraversePassiveMountEffects @ react-reconciler.development.js:5614
+commitPassiveMountOnFiber @ react-reconciler.development.js:5622
+recursivelyTraversePassiveMountEffects @ react-reconciler.development.js:5614
+commitPassiveMountOnFiber @ react-reconciler.development.js:5622
+recursivelyTraversePassiveMountEffects @ react-reconciler.development.js:5614
+commitPassiveMountOnFiber @ react-reconciler.development.js:5622
+recursivelyTraversePassiveMountEffects @ react-reconciler.development.js:5614
+commitPassiveMountOnFiber @ react-reconciler.development.js:5622
+recursivelyTraversePassiveMountEffects @ react-reconciler.development.js:5614
+commitPassiveMountOnFiber @ react-reconciler.development.js:5622
+recursivelyTraversePassiveMountEffects @ react-reconciler.development.js:5614
+commitPassiveMountOnFiber @ react-reconciler.development.js:5622
+recursivelyTraversePassiveMountEffects @ react-reconciler.development.js:5614
+commitPassiveMountOnFiber @ react-reconciler.development.js:5622
+recursivelyTraversePassiveMountEffects @ react-reconciler.development.js:5614
+commitPassiveMountOnFiber @ react-reconciler.development.js:5622
+recursivelyTraversePassiveMountEffects @ react-reconciler.development.js:5614
+commitPassiveMountOnFiber @ react-reconciler.development.js:5622
+recursivelyTraversePassiveMountEffects @ react-reconciler.development.js:5614
+commitPassiveMountOnFiber @ react-reconciler.development.js:5622
+recursivelyTraversePassiveMountEffects @ react-reconciler.development.js:5614
+commitPassiveMountOnFiber @ react-reconciler.development.js:5622
+recursivelyTraversePassiveMountEffects @ react-reconciler.development.js:5614
+commitPassiveMountOnFiber @ react-reconciler.development.js:5622
+recursivelyTraversePassiveMountEffects @ react-reconciler.development.js:5614
+commitPassiveMountOnFiber @ react-reconciler.development.js:5656
+recursivelyTraversePassiveMountEffects @ react-reconciler.development.js:5614
+commitPassiveMountOnFiber @ react-reconciler.development.js:5622
+recursivelyTraversePassiveMountEffects @ react-reconciler.development.js:5614
+commitPassiveMountOnFiber @ react-reconciler.development.js:5627
+flushPassiveEffects @ react-reconciler.development.js:6567
+commitRootImpl @ react-reconciler.development.js:6522
+commitRoot @ react-reconciler.development.js:6480
+commitRootWhenReady @ react-reconciler.development.js:6082
+performWorkOnRoot @ react-reconciler.development.js:6062
+performSyncWorkOnRoot @ react-reconciler.development.js:1364
+flushSyncWorkAcrossRoots_impl @ react-reconciler.development.js:1288
+commitRootImpl @ react-reconciler.development.js:6525
+commitRoot @ react-reconciler.development.js:6480
+commitRootWhenReady @ react-reconciler.development.js:6082
+performWorkOnRoot @ react-reconciler.development.js:6062
+performWorkOnRootViaSchedulerTask @ react-reconciler.development.js:1356
+performWorkUntilDeadline @ scheduler.development.js:44
+
+
+
+
+# 接下来的任务（前端）
+在 web-mmd/app 继续迭代功能
+
+## 要求
+1、要符合这个工程文件的目录结构和代码规范
+2、要在这个工程文件的基础上继续迭代，不能完全重新开始
+
+## 开发功能
+### /aihuman BUG修复
+1、这个页面问题很多，建议人物部分完全按照首页的方法来初始化
+2、初始化选择一个待机动作.vmd
+3、播放按钮放在右上角，点击后朗读
+4、如果还是不行就将主页人物相关的代码复刻到这里，注意不要复刻那些功能，保障这个页面数字人相关的核心代码
+5、播放按钮，加载完模型后就看不到了，修复下这个问题
+
+
+# 接下来的任务（前端）
+在 web-mmd/app 继续迭代功能
+
+## 要求
+1、要符合这个工程文件的目录结构和代码规范
+2、要在这个工程文件的基础上继续迭代，不能完全重新开始
+
+## 开发功能
+### /aihuman BUG修复
+1、加载模型的代码，有问题，一直在重复加载。参考下首页的做法，loading 完成后，就不重复加载了
+2、Runtime AbortError The play() request was interrupted by a call to pause(). https://goo.gl/LdLk22
+3、F:\Projects\AI-Human\web-mmd\app\aihuman\AihumanScene.tsx:134 THREE.PropertyBinding: No target node found for track:  THREE.PropertyBinding: No target node found for track: smoothCenter.position.
+4、Uncaught (in promise) AbortError: The play() request was interrupted by a call to pause(). https://goo.gl/LdLk22
+
+
+
+
+# 接下来的任务（前端）
+在 web-mmd/app 继续迭代功能
+
+## 要求
+1、要符合这个工程文件的目录结构和代码规范
+2、要在这个工程文件的基础上继续迭代，不能完全重新开始
+
+## 开发功能
+### / 首页 BUG修复
+Runtime TypeError
+
+
+Cannot read properties of undefined (reading 'getWorldPosition')
+
+app\components\three-world\camera\helper\fix-following-mode\index.tsx (18:67) @ getCenterPos
+
+
+  16 |     const cameraOffset = useGlobalStore(state => state.cameraOffset)
+  17 |
+> 18 |     const getCenterPos = () => targetModel.skeleton.getBoneByName("上半身").getWorldPosition(cameraOffset.center)
+     |                                                                   ^
+  19 |
+  20 |     const tempWeight = useRef(new Vector3()).current
+  21 |
+
+
+
+# 接下来的任务（前端）
+在 web-mmd/app 继续迭代功能
+
+## 要求
+1、要符合这个工程文件的目录结构和代码规范
+2、要在这个工程文件的基础上继续迭代，不能完全重新开始
+
+## 开发功能
+### /aihuman BUG修复
+1、修复下半身问题，下半身腿是僵直的，没有自然站立
+2、修复舞台问题，RedialC_EpRoomDS/EPDS.pmx 没有显示出来，另外人物需要站在 RedialC_EpRoomDS/EPDS.pmx 上面，具体位置参数可以参考首页
+3、修复光源 渲染问题，人物需要有光源，具体位置参数可以参考首页
+
+
+# 接下来的任务（前端）
+在 web-mmd/app 继续迭代功能
+
+## 要求
+1、要符合这个工程文件的目录结构和代码规范
+2、要在这个工程文件的基础上继续迭代，不能完全重新开始
+
+## 开发功能
+### /aihuman BUG修复
+1、人物是悬空的，没有踩在舞台上，需要让人物的脚踩在舞台上，可以参考下

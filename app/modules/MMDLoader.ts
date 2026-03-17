@@ -226,7 +226,20 @@ class MMDLoader extends Loader {
 
 		const parser = this._getParser();
 
-		const buffer = Buffer.from(url.split("base64,")[1], 'base64').buffer;
+		let buffer: ArrayBuffer;
+		if (url && url.startsWith("data:")) {
+			const base64 = url.split("base64,")[1] ?? ""
+			const bin = atob(base64)
+			const bytes = new Uint8Array(bin.length)
+			for (let i = 0; i < bin.length; i++) {
+				bytes[i] = bin.charCodeAt(i)
+			}
+			buffer = bytes.buffer
+		} else {
+			const res = await fetch(encodeURI(url));
+			if (!res.ok) throw new Error(`THREE.MMDLoader: Failed to load PMX: ${url}`);
+			buffer = await res.arrayBuffer();
+		}
 		const model = parser.parsePmx(buffer, true)
 
 		return model
@@ -251,7 +264,21 @@ class MMDLoader extends Loader {
 		const parser = this._getParser();
 
 		for (let i = 0, il = urls.length; i < il; i++) {
-			const buffer = Buffer.from(urls[i].split("base64,")[1], 'base64').buffer;
+			const u = urls[i] as string;
+			let buffer: ArrayBuffer;
+			if (u && u.startsWith("data:")) {
+				const base64 = u.split("base64,")[1] ?? ""
+				const bin = atob(base64)
+				const bytes = new Uint8Array(bin.length)
+				for (let i = 0; i < bin.length; i++) {
+					bytes[i] = bin.charCodeAt(i)
+				}
+				buffer = bytes.buffer
+			} else {
+				const res = await fetch(encodeURI(u));
+				if (!res.ok) throw new Error(`THREE.MMDLoader: Failed to load VMD: ${u}`);
+				buffer = await res.arrayBuffer();
+			}
 			vmds.push(parser.parseVmd(buffer, true));
 		}
 
@@ -1007,8 +1034,6 @@ class MaterialBuilder {
 	}
 
 	build(data: PMXModel, geometry: any, onProgress: any, onError: any, shaderParams: ShaderParams) {
-		console.log(`[${data.metadata.modelName}] sdef: ${shaderParams.enableSdef}, PBR: ${shaderParams.enablePBR}`)
-
 		const materials = [];
 
 		this.textureLoader.setCrossOrigin(this.crossOrigin);
@@ -1281,7 +1306,7 @@ class MaterialBuilder {
 
 		} else {
 
-			fullPath = this.resourcePath + filePath;
+			fullPath = encodeURI(this.resourcePath + filePath);
 
 		}
 

@@ -5,11 +5,13 @@ import ResourceCard from "../resources/ResourceCard";
 import useGlobalStore from "@/app/stores/useGlobalStore";
 import { nanoid } from "nanoid";
 import onDelete from "./onDelete";
+import { useT } from "@/app/i18n/useT";
 
 function LocalModel({ name }: { name: string }) {
+    const t = useT()
 
     const onClick = (e: MouseEvent) => {
-        const newName = prompt("Enter model name", `${name.split("/").pop().split(".")[0]}-${nanoid(5)}`)
+        const newName = prompt(t("resource.enterModelName"), `${name.split("/").pop().split(".")[0]}-${nanoid(5)}`)
         if (!newName) return
         usePresetStore.setState(({ models }) => {
             models[newName] = {
@@ -31,7 +33,7 @@ function LocalModel({ name }: { name: string }) {
             selected={false}
         >
             <MenuItem sx={{ color: 'red' }} onClick={() => onDelete(name)}>
-                Delete Model
+                {t("resource.deleteModel")}
             </MenuItem>
         </ResourceCard>
     );

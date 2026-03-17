@@ -6,8 +6,10 @@ import { copyPreset, savePreset, saveConfigOnly } from "@/app/components/panel/p
 import ResourceCard from "../resources/ResourceCard";
 import useGlobalStore from "@/app/stores/useGlobalStore";
 import useDelete from "./useDelete";
+import { useT } from "@/app/i18n/useT";
 
 function LocalPreset({ name }: { name: string }) {
+    const t = useT()
     const presetsInfo = useConfigStore(state => state.presetsInfo)
     const screenShot = presetsInfo[name]?.screenShot
     const onDelete = useDelete()
@@ -28,16 +30,16 @@ function LocalPreset({ name }: { name: string }) {
             selected={isCurrentPreset}
         >
             <MenuItem onClick={() => copyPreset(name)}>
-                Copy Preset
+                {t("resource.copyPreset")}
             </MenuItem>
             <MenuItem onClick={() => savePreset(name)}>
-                Save Preset
+                {t("resource.savePreset")}
             </MenuItem>
             <MenuItem onClick={() => saveConfigOnly(name)}>
-                Save Config Only
+                {t("resource.saveConfigOnly")}
             </MenuItem>
             <MenuItem sx={{ color: 'red' }} onClick={() => onDelete(name)}>
-                Delete Preset
+                {t("resource.deletePreset")}
             </MenuItem>
         </ResourceCard>
     );

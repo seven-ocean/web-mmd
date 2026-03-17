@@ -23,12 +23,13 @@ function PMXModel({ url, modelTextures, enableSdef = true, enablePBR = true, chi
     const [initProps, setProps] = useState<Awaited<ReturnType<MMDLoader["loadAsync"]>>>()
 
     useEffect(() => {
+        if (!url) return
         const params = {
             enableSdef,
             enablePBR,
             isWebGPU
         }
-        if (url.startsWith("data:")) {
+        if (typeof url === "string" && url.startsWith("data:")) {
             Object.assign(params, {
                 modelTextures
             });
@@ -72,7 +73,7 @@ function PMXModel({ url, modelTextures, enableSdef = true, enablePBR = true, chi
         setInited(true)
     }, [mesh])
 
-    if (!initProps) return
+    if (!url || !initProps) return
 
     const { data, geometry, material } = initProps
 
